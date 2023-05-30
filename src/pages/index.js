@@ -2,9 +2,9 @@ import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+// // import styles from '@/styles/Home.module.css'
 import { FiAlertCircle } from "react-icons/fi";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
 import { FiHeart } from "react-icons/fi";
 import PropertyCard from '@/components/propertyCard/PropertyCard';
 import Property from '@/components/property/Property';
@@ -13,13 +13,20 @@ import Img from "../../assets/img-popup.jpeg";
 import ImgTwo from "../../assets/img-popup-two.jpeg";
 import ImgThree from "../../assets/img-popup-three.jpeg";
 import Tab from '@/components/tab/Tab'
-import Chart from '@/components/chart/Chart'
-import BarChart from '@/components/chart/Chart'
+import Chart from '@/components/chart/BarChart'
+import BarChart from '@/components/chart/BarChart'
 import Map from '@/components/map/Map'
+// import styles from "../styles/swiper-custom.css";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [totalInvestment, setTotalInvestment] = useState(false);
+  const [financing, setFinancing] = useState(false);
+  const [loan, setLoan] = useState(false);
+  const [amortization, setAmortization] = useState(true);
+  const [revenue, setRevenue] = useState(false);
+  const [expenses, setExpenses] = useState(false);
   return (
     <>
       <Head>
@@ -83,7 +90,7 @@ export default function Home() {
             <div className='bg-[purple] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>V</div>
           </div>
         </div>
-        <br /> 
+        <br />
         <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Revenue Projection</p>
         <BarChart />
         <p className='text-center text-[#a9a9a9]'>Seasonalized based on a market RevPAN of $220</p>
@@ -125,8 +132,8 @@ export default function Home() {
         </div>
 
 
-     <br /> <br />
-     <br />  <div className='border-[1px] rounded-[5px] ' >
+        <br /> <br />
+        <br />  <div className='border-[1px] rounded-[5px] ' >
           <div className='flex px-4 py-4 justify-between'>
             <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Calculator</p>
             <button className='border-[1px] rounded-[5px] py-1 px-4'>Edit Preference</button>
@@ -150,36 +157,354 @@ export default function Home() {
           </div>
           <br />
           <hr />
-          <div className='flex justify-between items-center px-4 py-2'>
+
+          <div onClick={() => setTotalInvestment(!totalInvestment)} className='flex cursor-pointer justify-between items-center px-4 py-2'>
             <p className='text-[#200955] font-bold text-[1.1rem] leading-[2rem]'>Total Investment</p>
             <div className='flex gap-0 text-[#232323] font-bold items-center'>
               <p>$530,298</p>
-              <MdKeyboardArrowRight fontSize={20} />
+              {
+                totalInvestment ? <MdKeyboardArrowDown fontSize={20} /> : <MdKeyboardArrowRight fontSize={20} />
+              }
             </div>
           </div>
+          {
+            totalInvestment &&  <>
+            <hr /><div className='px-4'>
+             
+              <div className='grid md:grid-cols-2 gap-x-8 pb-3'>
+                <div className='flex w-full flex-col pt-4'>
+                  <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Asking Price</label>
+                  <div className='relative '>
+                    <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-4'>
+                  <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Purchase Price Factor</label>
+                  <div className='relative '>
+                    <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-3'>
+                  <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Purchase Price</label>
+                  <div className='relative '>
+                    <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>            <div className='flex w-full flex-col pt-3'>
+                  <div className='flex gap-1 items-center'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Clothing Costs</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
+                  <div className='relative '>
+                    <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-3'>
+                  <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Immediate Repairs</label>
+                  <div className='relative '>
+                    <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>            <div className='flex w-full flex-col pt-3'>
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Furnishing Costs</label>  <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+
+                  <div className='relative '>
+
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>            <div className='flex w-full flex-col pt-3'>
+
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Initial Expenses</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+
+                  <div className='relative '>
+                    <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+              </div>
+            </div>
+       </>   }
           <hr />
-          <div className='flex justify-between items-center px-4 py-2'>
+
+          <div onClick={() => setFinancing(!financing)} className='flex cursor-pointer justify-between items-center px-4 py-2'>
             <p className='text-[#200955] font-bold text-[1.1rem] leading-[2rem]'>Financing</p>
             <div className='flex gap-0 text-[#232323] font-bold items-center'>
               <p>$527,977/mo</p>
-              <MdKeyboardArrowRight fontSize={20} />
+              {
+                financing ? <MdKeyboardArrowDown fontSize={20} /> : <MdKeyboardArrowRight fontSize={20} />
+              }
             </div>
-          </div>          <hr />
-          <div className='flex justify-between items-center px-4 py-2'>
+          </div>
+          <hr />
+          {financing && <><div className='px-4'>
+
+            <div className='grid md:grid-cols-2 gap-x-8 pb-3'>
+              <div>
+                <p className='text-[1.125rem] leading-[1.75rem] mt-3 text-[#a0a0a0]'>Financing Method</p>
+                <div className='grid grid-cols-2 gap-4'>
+                  <button onClick={() => setLoan(0)} className={`h-10 border-[1px] rounded-[5px] text-[1.125rem] leading-[1.75rem] border-solid   ${loan == 0 ? "bg-[#200955] text-white" : "bg-white hover:bg-[#f7f7f7] text-[#200955]"}`}>Loan</button>
+                  <button onClick={() => setLoan(1)} className={`h-10 border-[1px] rounded-[5px] text-[1.125rem] leading-[1.75rem] border-solid   ${loan == 1 ? "bg-[#200955] text-white" : "bg-white hover:bg-[#f7f7f7] text-[#200955]"}`}>Cash Only</button>
+                </div>
+                {
+                  loan == 0 && <>
+                    <p className='text-[1.125rem] leading-[1.75rem] mt-3 text-[#a0a0a0] pb-[0.5px]'>Loan Amount</p>
+                    <div className='relative '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input disabled placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                    <div className='flex items-center gap-1 pt-3'>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Interest Rate</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+
+                    <div className='relative '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                    {
+                      amortization ? <> <div className='flex items-center gap-1 pt-3'>
+                        <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Amortization Term</label>
+                        <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                      </div>
+                        <div className='relative '>
+                          <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                        </div>
+                      </> : <>
+                        <button className='border-[#e5e7eb] border-[1px] rounded-[5px] h-10 text-center w-full mt-6 hover:bg-[#f7f7f7]'>Get a free landing quote</button>
+                      </>}
+                  </>
+                }
+              </div>
+              <div>
+
+                {
+                  loan == 0 ? <>
+                    <div className='flex items-center gap-1 pt-3'>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Down Payment</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+
+                    <div className='flex justify-between'>
+                      <div className='relative w-full '>
+                        <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                        <input className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
+                      </div>
+                      <div className='relative w-full '>
+                        <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
+                        <input className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
+                      </div>
+                    </div>
+                    <div className='flex items-center gap-1 pt-3'>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Loan Closing Costs</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+
+                    <div className='relative '>
+                      <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
+                      <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                    <div className='flex items-center gap-1 pt-3'>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Interest Type</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+                    <div className='grid grid-cols-2 gap-4'>
+                      <button onClick={() => setAmortization(!amortization)} className={`h-10 border-[1px] rounded-[5px] text-[1.125rem] leading-[1.75rem] border-solid   ${amortization ? "bg-[#200955] text-white" : "bg-white hover:bg-[#f7f7f7] text-[#200955]"}`}>Amortization</button>
+                      <button onClick={() => setAmortization(!amortization)} className={`h-10 border-[1px] rounded-[5px] text-[1.125rem] leading-[1.75rem] border-solid   ${amortization ? "bg-white hover:bg-[#f7f7f7] text-[#200955]" : "bg-[#200955] text-white "}`}>Interest Only</button>
+                    </div>
+
+                  </> : <div className='mt-4'>
+                    <button className='border-[#e5e7eb] border-[1px] rounded-[5px] h-10 text-center w-full mt-6 hover:bg-[#f7f7f7]'>Get a free landing quote</button>
+                  </div>
+                }
+              </div>
+
+            </div>
+
+          </div>
+            <hr />
+          </>}
+
+          <div onClick={() => setRevenue(!revenue)} className='flex cursor-pointer justify-between items-center px-4 py-2'>
             <p className='text-[#200955] font-bold text-[1.1rem] leading-[2rem]'>Revenue</p>
             <div className='flex gap-0 text-[#232323] font-bold items-center'>
               <p>$8,999/mo</p>
-              <MdKeyboardArrowRight fontSize={20} />
+              {
+                revenue ? <MdKeyboardArrowDown fontSize={20} /> : <MdKeyboardArrowRight fontSize={20} />
+              }
             </div>
-          </div>          <hr />
-          <div className='flex justify-between items-center px-4 py-2'>
+          </div>
+          {
+            revenue && <> <hr />
+              <div className='px-4 pb-3'>
+                <div className='grid md:grid-cols-2 gap-x-8 '>
+                  <div>
+                    <div className='flex items-center gap-1 pt-3 '>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>RevPAN</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+                    <div className='relative '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                    <p className='text-[#a0a0a0] pt-3 text-[0.9rem]'>$230 is the projected RevPan based on comparable Airbnbs for this specific property, according to our Airbnb Calculator.</p>
+                    <div className='flex items-center gap-1 pt-3 '>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Monthly Revenue</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+                    <div className='relative '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input disabled placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+
+                  </div>
+                  <div>
+                    <div className='flex items-center gap-1 pt-3 '>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Other Income</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+                    <div className='relative '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                    <p className='text-[#a0a0a0] pt-3 text-[0.9rem]'>$230 is the projected RevPan based on comparable Airbnbs for this specific property, according to our Airbnb Calculator.</p>
+                    <div className='flex items-center gap-1 pt-3 '>
+                      <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Annual Revenue</label>
+                      <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                    </div>
+                    <div className='relative '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input disabled placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          }
+          <hr />
+          <div onClick={() => setExpenses(!expenses)} className='flex cursor-pointer justify-between items-center px-4 py-2'>
             <p className='text-[#200955] font-bold text-[1.1rem] leading-[2rem]'>Expenses</p>
             <div className='flex gap-0 text-[#232323] font-bold items-center'>
               <p>$5,398/mo</p>
               <MdKeyboardArrowRight fontSize={20} />
             </div>
-          </div>          <hr />
-          <br />   <div className='flex justify-between items-center px-4 py-2'>
+          </div>
+
+          {
+            expenses && <>
+            <hr />  <div className='px-4'>
+         
+              <div className='grid md:grid-cols-2 gap-x-8 pb-3'>
+                <div className='flex w-full flex-col pt-4'>
+
+                  <div className='flex items-center gap-1  '>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Channel Fees</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+                  <div className='relative '>
+                    <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-4'>
+                  <div className='flex items-center gap-1 '>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Project Management Fee</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+                  <div className='relative '>
+                    <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-3'>
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Supply Fees</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+                  <div className='relative '>
+                    <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>            <div className='flex w-full flex-col pt-3'>
+                  <div className='flex gap-1 items-center'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Property Taxes</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
+                  <div className='relative '>
+                    <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-3'>
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Insurance</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+                  <div className='relative '>
+                    <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>            <div className='flex w-full flex-col pt-3'>
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>HOA Fees</label>  <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+
+                  <div className='relative '>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-3'>
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Utilities</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+                  <div className='flex justify-between'>
+                    <div className='relative w-full '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                    <div className='relative w-full '>
+                      <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
+                      <input className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                  </div>
+                </div>
+                <div className='flex w-full flex-col pt-3'>
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Maintenance</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+                  <div className='relative '>
+                    <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                  </div>
+                </div>     <div className='flex w-full flex-col pt-3'>
+                  <div className='flex items-center gap-1'>
+                    <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Other Expenses</label>
+                    <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                  </div>
+                  <div className='flex justify-between'>
+                    <div className='relative w-full '>
+                      <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
+                      <input className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                    <div className='relative w-full '>
+                      <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
+                      <input className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </>    }
+<hr />
+          <br />
+          <div className='flex justify-between items-center px-4 py-2'>
             <div className='flex gap-1 items-center'>
               <p className='text-[#200955] font-bold text-[1.1rem] leading-[2rem]'>Upfront Equity</p>
               <FiAlertCircle className='text-[#a0a0a0] -mt-1' />     </div>
@@ -213,14 +538,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      <br />
-      <br />
-      <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Location</p>
-      <br />
-     
-           <Map />
-<br />
-<br />
+        <br />
+        <br />
+        <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Location</p>
+        <br />
+
+        <Map />
+        <br />
+        <br />
         <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Market Data</p>
         <p className='text-[#2e2e2e] pt-2 pb-5'>Performance of Airbnbs in the overall market for State College, PA 16803. Data displayed is not impacted by filters in this search.</p>
         <Tab />
