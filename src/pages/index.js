@@ -39,7 +39,7 @@ export default function Home() {
 
       <div className='mx-4  md:w-9/12 md:mx-auto'>
 
-        <div className='grid gap-4 grid-cols-2'>
+        <div className='grid gap-4 mt-6 grid-cols-2'>
           <Image onClick={() => setOpen(!open)} src={Img} className="cursor-pointer h-full rounded-[1rem]" />
           <div>
             <Image src={ImgTwo} className="cursor-pointer md:h-64 rounded-[1rem]" />

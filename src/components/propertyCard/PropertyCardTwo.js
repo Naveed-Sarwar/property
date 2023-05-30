@@ -6,7 +6,7 @@ import Slider from '../slider/Slider';
 const PropertyCardTwo = () => {
     return (
         <div>
-            <div className='lg:border-[1px] lg:w-[350px] relative'>
+            <div className='lg:border-[1px] lg:w-[350px] relative hover:-mt-1 duration-200 ease-out'>
                 <div className=" rounded-t-lg" >
                     <Slider />
                 </div>
