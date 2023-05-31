@@ -177,7 +177,68 @@ const property = () => {
                         </div>
                     </div>
                     <hr className='text-[#8d8d8d] h-[1px] my-10' />
-                    <p id="section4" ref={section4Ref} className='text-[27px] font-bold text-black -leading-[0.75px] pb-1'>The market</p>
+                    <div onClick={() => setAverageRate(!averageRate)} className='flex mt-2 cursor-pointer justify-between'>
+                        <div>
+                            <p className=' font-semibold text-[1.1rem]'>Average daily rate<sup cla>(1)</sup></p>
+                            <p className='text-[1.4rem]'>$1,115.00</p>
+                        </div>        {
+                            averageRate ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
+                        }
+                    </div>
+                    {
+                        averageRate && <div> <BarChart />    </div>
+                    }
+
+                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
+
+
+                    <div onClick={() => setAverageOccupancy(!averageOccupancy)} className='flex mt-2 cursor-pointer justify-between'>
+                        <div>
+                            <p className=' font-semibold text-[1.1rem]'>Average occupancy<sup cla>(1)</sup></p>
+                            <p className='text-[1.4rem]'>$1,115.00</p>
+                        </div>        {
+                            averageOccupancy ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
+                        }
+                    </div>
+                    {
+                        averageOccupancy && <div> <BarChart /> </div>
+                    }
+
+                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
+
+
+                    <div onClick={() => setAverageRevenue(!averageRevenue)} className='flex mt-2 cursor-pointer justify-between'>
+                        <div>
+                            <p className=' font-semibold text-[1.1rem]'>Average revenue<sup cla>(1)</sup></p>
+                            <p className='text-[1.4rem]'>$13,415.00</p>
+                        </div>        {
+                            averageRevenue ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
+                        }
+                    </div>
+                    {
+                        averageRevenue && <div> <BarChart />    </div>
+                    }
+
+                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
+
+
+                    <div onClick={() => setZillow(!zillow)} className='flex mt-2 cursor-pointer justify-between'>
+                        <div>
+                            <p className=' font-semibold text-[1.1rem]'>Zillow home values<sup >(2)</sup></p>
+                            <div className='flex gap-x-2 items-center'>
+                                <p className='text-[1.4rem]'>15%</p>
+                                <p className='text-[0.8rem] mt-2 text-[#8d8d8d]'>5-year historical average</p> </div>
+                        </div>        {
+                            zillow ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
+                        }
+                    </div>
+                    {
+                        zillow && <div> <LineChart /></div>
+                    }
+
+                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
+
+   <p id="section4" ref={section4Ref} className='text-[27px] font-bold text-black -leading-[0.75px] pb-1'>The market</p>
                     <MarketMap />
                     <p className='text-[#8f8f8f] py-2'>Panama City Beach, Florida</p>
 
@@ -262,67 +323,7 @@ const property = () => {
                             </div>   </>
                     }       <br />
                     <hr className='text-[#8d8d8d] h-[1px] my-6' />
-                    <div onClick={() => setAverageRate(!averageRate)} className='flex mt-2 cursor-pointer justify-between'>
-                        <div>
-                            <p className=' font-semibold text-[1.1rem]'>Average daily rate<sup cla>(1)</sup></p>
-                            <p className='text-[1.4rem]'>$1,115.00</p>
-                        </div>        {
-                            averageRate ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
-                        }
-                    </div>
-                    {
-                        averageRate && <div> <BarChart />    </div>
-                    }
-
-                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
-
-
-                    <div onClick={() => setAverageOccupancy(!averageOccupancy)} className='flex mt-2 cursor-pointer justify-between'>
-                        <div>
-                            <p className=' font-semibold text-[1.1rem]'>Average occupancy<sup cla>(1)</sup></p>
-                            <p className='text-[1.4rem]'>$1,115.00</p>
-                        </div>        {
-                            averageOccupancy ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
-                        }
-                    </div>
-                    {
-                        averageOccupancy && <div> <BarChart /> </div>
-                    }
-
-                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
-
-
-                    <div onClick={() => setAverageRevenue(!averageRevenue)} className='flex mt-2 cursor-pointer justify-between'>
-                        <div>
-                            <p className=' font-semibold text-[1.1rem]'>Average revenue<sup cla>(1)</sup></p>
-                            <p className='text-[1.4rem]'>$13,415.00</p>
-                        </div>        {
-                            averageRevenue ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
-                        }
-                    </div>
-                    {
-                        averageRevenue && <div> <BarChart />    </div>
-                    }
-
-                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
-
-
-                    <div onClick={() => setZillow(!zillow)} className='flex mt-2 cursor-pointer justify-between'>
-                        <div>
-                            <p className=' font-semibold text-[1.1rem]'>Zillow home values<sup >(2)</sup></p>
-                            <div className='flex gap-x-2 items-center'>
-                                <p className='text-[1.4rem]'>15%</p>
-                                <p className='text-[0.8rem] mt-2 text-[#8d8d8d]'>5-year historical average</p> </div>
-                        </div>        {
-                            zillow ? <IoMdArrowDropdown fontSize={24} /> : <IoMdArrowDropup fontSize={24} />
-                        }
-                    </div>
-                    {
-                        zillow && <div> <LineChart /></div>
-                    }
-
-                    <hr className='text-[#8d8d8d] h-[1px] my-6' />
-
+                 
                     <p className='text-[#8d8d8d] italic text-[0.7rem]'><sup>(1)</sup>Statistics and definitions are based on data for similar sized homes using the 50th percentile in the Panama City Beach, FL market for the 12 months ending February 28th, 2023. Source: AirDNA                </p>
                     <p className='text-[#8d8d8d] italic text-[0.7rem] pt-2'><sup>(1)</sup>ZHVI represents the typical home value for 32413. Source: Zillow</p>
 
@@ -337,12 +338,14 @@ const property = () => {
             </div>
             <div>
 
-                <div className='grid grid-cols-12 gap-2 mx-4 lg:mx-0 '>
+                <div className='grid grid-cols-12 gap-2 mt-4 mx-4 lg:mx-0 '>
                     <div className='lg:col-span-3'>
                     </div>
                     <div className='col-span-12 mx-0 lg:mx-9 lg:col-span-8'>
                         <Faq />
                         <br />    <AdditionalResources />
+                        <br />
+                        <br />
                     </div>
                     <div className='lg:col-span-1'>
 
