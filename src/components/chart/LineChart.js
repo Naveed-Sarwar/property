@@ -66,11 +66,7 @@ export default function LineChart() {
         },
     };
   
-    const data = [
-       0,
-        1000,
 
-    ]
     return (
         <div>
 
@@ -78,10 +74,10 @@ export default function LineChart() {
                 <Line className=''  data={
                   
                   {
-                        labels: "months" == 'months' ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] : labels,
+                        labels: "months" == 'months' ? ['2019', '2020', '2021', '2022', "2023"] : labels,
                         datasets: [{
                             label: 'RevPAN',
-                            data: [65, 59, 80, 81, 56, 55, 40 , 20 , 40 , 66 , 76 , 80 , 90],
+                            data: [65, 59, 80, 81, 90],
                             backgroundColor: [
                               'rgba(255, 99, 132, 0.2)',
                               'rgba(255, 159, 64, 0.2)',
