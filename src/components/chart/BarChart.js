@@ -30,7 +30,7 @@ export default function BarChart() {
             },
             title: {
                 display: true,
-                text: "graphTitle",
+                text: "",
                 color: "#200955",
                 font: {
                     size: 18,
@@ -43,13 +43,14 @@ export default function BarChart() {
                     tickColor: "#200955",
                 },
                 ticks: {
+                    beginAtZero: true,
                     color: "#200955",
                     font: {
                         size: 14,
                         weight: 'bold',
                     },
                     padding: 20,
-                    stepSize: 1,
+                    
                 }
             },
             x: {

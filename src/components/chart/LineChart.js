@@ -17,8 +17,7 @@ ChartJS.register(
 
 export default function LineChart() {
 
-    const [first, setFirst] = useState(true);
-    const [multipleDatasets, setMultipleDatasets] = useState(true);
+
     const options = {
         maintainAspectRatio: false,
         responsive: true,
@@ -30,7 +29,7 @@ export default function LineChart() {
             },
             title: {
                 display: true,
-                text: "graphTitle",
+                text: "",
                 color: "#200955",
                 font: {
                     size: 18,
@@ -43,13 +42,16 @@ export default function LineChart() {
                     tickColor: "#200955",
                 },
                 ticks: {
+                    beginAtZero: true,
+                    minRotation: 0,
+                    maxRotation: 0,
                     color: "#200955",
                     font: {
                         size: 14,
                         weight: 'bold',
                     },
                     padding: 20,
-                    stepSize: 1,
+                
                 }
             },
             x: {
@@ -65,42 +67,48 @@ export default function LineChart() {
             },
         },
     };
-  
+    const data = [
+        300000,
+        400000,
+        500000,
+        200000,
+        400000,
+    ]
 
     return (
         <div>
 
             <div className='h-96 w-full mx-auto'>
-                <Line className=''  data={
-                  
-                  {
+                <Line className='' data={
+
+                    {
                         labels: "months" == 'months' ? ['2019', '2020', '2021', '2022', "2023"] : labels,
                         datasets: [{
                             label: 'RevPAN',
-                            data: [65, 59, 80, 81, 90],
+                            data: data,
                             backgroundColor: [
-                              'rgba(255, 99, 132, 0.2)',
-                              'rgba(255, 159, 64, 0.2)',
-                              'rgba(255, 205, 86, 0.2)',
-                              'rgba(75, 192, 192, 0.2)',
-                              'rgba(54, 162, 235, 0.2)',
-                              'rgba(153, 102, 255, 0.2)',
-                              'rgba(201, 203, 207, 0.2)',
-                 
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)',
+
                             ],
                             borderColor: [
-                              'rgb(255, 99, 132)',
-                              'rgb(255, 159, 64)',
-                              'rgb(255, 205, 86)',
-                              'rgb(75, 192, 192)',
-                              'rgb(54, 162, 235)',
-                              'rgb(153, 102, 255)',
-                              'rgb(201, 203, 207)',
-                        
+                                'rgb(255, 99, 132)',
+                                'rgb(255, 159, 64)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(201, 203, 207)',
+
 
                             ],
                             borderWidth: 1
-                          }]
+                        }]
                     }
                 }
                     options={options}
