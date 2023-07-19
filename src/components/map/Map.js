@@ -58,7 +58,7 @@ const Map = () => {
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [-74.5, 40],
-      zoom: 15,
+      zoom: 9,
     });
 
     const placeName = '367 W Clearview Ave, State College, PA 16803';
@@ -79,12 +79,13 @@ const Map = () => {
         new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map.current);
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error('Error:', error)
+
       });
   }, []);
 
 
-  return <div style={{position: "relative", height: '200px', width: '100%' }} ref={mapContainer} />
+  return <div style={{position: "relative", height: '400px', width: '100%' }} ref={mapContainer} />
 };
 
 export default Map;
