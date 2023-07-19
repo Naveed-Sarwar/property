@@ -28,6 +28,19 @@ export default function Page() {
     const [amortization, setAmortization] = useState(true);
     const [revenue, setRevenue] = useState(false);
     const [expenses, setExpenses] = useState(false);
+
+    const [pricePurchaseFactor, setPricePurchaseFactor] = useState("0");
+    const [purchasePrice, setPurchasePrice] = useState("350,000");
+    const [closingCosts, setClosingCosts] = useState("2.75");
+    const [immediateRepairs, setImmediateRepairs] = useState("0");
+    const [furnishingCost, setFurnishingCost] = useState("17,500");
+    const [initialExpenses, setInitialExpenses] = useState("7000");
+    const [interestRate, setInterestRate] = useState("7.75");
+    const [amortizationTerm, setAmortizationTerm] = useState("30");
+
+    const [downPaymentMin, setDownPaymentMin] = useState("70,000");
+    const [downPaymentMax, setDownPaymentMax] = useState("20");
+    const [loanClosingCost, setLoanClosingCost] = useState("1.5");
     return (
         <>
             <p className="py-3 text-center text-4xl font-semibold">A S S T H I</p>
@@ -171,25 +184,25 @@ export default function Page() {
                             <hr /><div className='px-4'>
 
                                 <div className='grid md:grid-cols-2 gap-x-8 pb-3'>
-                                    <div className='flex w-full flex-col pt-4'>
+                                    {/* <div className='flex w-full flex-col pt-4'>
                                         <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Asking Price</label>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
                                             <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className='flex w-full flex-col pt-4'>
                                         <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Purchase Price Factor</label>
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={pricePurchaseFactor} onChange={(e) => setPricePurchaseFactor(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                     <div className='flex w-full flex-col pt-3'>
                                         <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Purchase Price</label>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={purchasePrice} onChange={(e) => setPurchasePrice(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex gap-1 items-center'>
@@ -197,14 +210,14 @@ export default function Page() {
                                             <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={closingCosts} onChange={(e) => setClosingCosts(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                     <div className='flex w-full flex-col pt-3'>
                                         <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Immediate Repairs</label>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={immediateRepairs} onChange={(e) => setImmediateRepairs(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
@@ -212,8 +225,8 @@ export default function Page() {
                                         </div>
 
                                         <div className='relative '>
-
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
+                                            <input value={furnishingCost} onChange={(e) => setFurnishingCost(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
 
@@ -224,7 +237,7 @@ export default function Page() {
 
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={initialExpenses} onChange={(e) => setInitialExpenses(e.target.value)} className='border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                 </div>
@@ -256,7 +269,7 @@ export default function Page() {
                                         <p className='text-[1.125rem] leading-[1.75rem] mt-3 text-[#a0a0a0] pb-[0.5px]'>Loan Amount</p>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input disabled placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input disabled placeholder='280,000' className='placeholder:text-[#200955] bg-[#f2f2f3] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                         <div className='flex items-center gap-1 pt-3'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Interest Rate</label>
@@ -265,7 +278,7 @@ export default function Page() {
 
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                         {
                                             amortization ? <> <div className='flex items-center gap-1 pt-3'>
@@ -273,7 +286,7 @@ export default function Page() {
                                                 <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
                                             </div>
                                                 <div className='relative '>
-                                                    <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                                    <input value={amortizationTerm} onChange={(e) => setAmortization(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                                 </div>
                                             </> : <>
                                                 <button className='border-[#e5e7eb] border-[1px] rounded-[5px] h-10 text-center w-full mt-6 hover:bg-[#f7f7f7]'>Get a free landing quote</button>
@@ -293,11 +306,11 @@ export default function Page() {
                                         <div className='flex justify-between'>
                                             <div className='relative w-full '>
                                                 <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                                <input className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
+                                                <input value={downPaymentMin} onChange={(e) => setDownPaymentMin(e.target.value)} className='border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
                                             </div>
                                             <div className='relative w-full '>
                                                 <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
-                                                <input className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
+                                                <input value={downPaymentMax} onChange={(e) => setDownPaymentMax(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
                                             </div>
                                         </div>
                                         <div className='flex items-center gap-1 pt-3'>
@@ -307,7 +320,7 @@ export default function Page() {
 
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={loanClosingCost} onChange={(e) => setLoanClosingCost(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                         <div className='flex items-center gap-1 pt-3'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Interest Type</label>
