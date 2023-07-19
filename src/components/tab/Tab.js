@@ -22,20 +22,20 @@ const Tab = () => {
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Avg. ADR Next 30 Days</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$510</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Avg. Occupancy Next 30 Days</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>51%</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5.5 cursor-pointer' />
                                 </div>      <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized RevPAN</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$287</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div> </div>
@@ -45,28 +45,28 @@ const Tab = () => {
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized Monthly Revenue</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$8,617</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized Annual Revenue</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$237</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$104,835</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Active Listing</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$423</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>103</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Active Hosts</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>94</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5.5 cursor-pointer' />
                                 </div>         </div>
@@ -76,20 +76,20 @@ const Tab = () => {
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Avg. ADR Next 30 Days</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$496</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Avg. Occupancy Next 30 Days</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$117</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>51%</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5.5 cursor-pointer' />
                                 </div>      <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized RevPAN</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$133</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$279</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div> </div>
@@ -99,28 +99,28 @@ const Tab = () => {
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized Monthly Revenue</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$8,372</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized Annual Revenue</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$767</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$101,861</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Active Listing</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$267</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>237</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Active Hosts</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>212</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5.5 cursor-pointer' />
                                 </div>         </div>
@@ -131,20 +131,20 @@ const Tab = () => {
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Avg. ADR Next 30 Days</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$407</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Avg. Occupancy Next 30 Days</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>46%</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5.5 cursor-pointer' />
                                 </div>      <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized RevPAN</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$467</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$207</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div> </div>
@@ -154,28 +154,28 @@ const Tab = () => {
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized Monthly Revenue</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$907</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$6,208</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Seasonalized Annual Revenue</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$444</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$75,526</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Active Listing</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$567</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>514</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5 cursor-pointer' />
                                 </div>
                                 <div className='flex cursor-pointer justify-between border-[1px] border-[#bdbdbd] rounded-[5px] px-4 py-3'>
                                     <div>
                                         <p className='text-[1rem] leading-[1.75rem] text-[#a0a0a0]'>Active Hosts</p>
-                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>$897</p>
+                                        <p className='text-[#200955] font-bold text-[1.1rem] leading-[1.4rem]'>437</p>
                                     </div>
                                     <FiAlertCircle className='text-[#a0a0a0] mt-1.5.5 cursor-pointer' />
                                 </div>         </div>

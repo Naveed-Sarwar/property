@@ -57,11 +57,12 @@ export default function Home() {
         <div className='flex items-center justify-between'>
           <div>
             <div className='flex gap-2 mt-3 items-center'>
-              <p className='font-bold text-[#333333] text-[1.5rem] md:text-[2.25rem]'>$429K</p>
+              <p className='font-bold text-[#333333] text-[1.5rem] md:text-[2.25rem]'>$1,295,000</p>
               <p className='bg-[#5FC65F] font-bold text-[0.875rem] h-6 px-2 rounded-xl text-white'>For Sale</p>
             </div>
             <p><span className='font-bold'>
-              2294 Roylen Cir</span> State College, PA 16801</p>
+            8602 E Thornwood Dr,
+Scottsdale, </span> AZ 85251</p>
           </div>
           <div>
             <FiHeart className='text-[#959595] h-6 w-6 md:h-9 md:w-9 ' />
@@ -72,8 +73,8 @@ export default function Home() {
         <div className='flex gap-3 md:gap-14  w-full justify-center py-4 items-center pr-4'>
           <p><span className='font-extrabold'>3</span><span className='pl-1 text-[12px]'>bd</span></p>
           <div className='h-6 w-[2px] bg-[#ececec]'></div>
-          <p><span className='font-extrabold'>2</span><span className='pl-1 text-[12px]'>ba</span></p>
-          <div className='h-6 w-[2px] bg-[#ececec]'></div>   <p><span className='font-extrabold'>1856</span><span className='pl-1 text-[12px]'>sqft</span></p>
+          <p><span className='font-extrabold'>3</span><span className='pl-1 text-[12px]'>ba</span></p>
+          <div className='h-6 w-[2px] bg-[#ececec]'></div>   <p><span className='font-extrabold'>2039</span><span className='pl-1 text-[12px]'>sqft</span></p>
           <div className='h-6 w-[2px] bg-[#ececec]'></div> <p className='text-[1rem]'>Townhome</p>
         </div>
         <hr />
