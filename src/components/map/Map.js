@@ -58,16 +58,15 @@ const Map = () => {
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [-74.5, 40],
-            zoom: 9,
         });
 
         const placeName = '367 W Clearview Ave, State College, PA 16803';
 
         fetch(
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-              placeName
+                placeName
             )}.json?access_token=${mapboxgl.accessToken}`
-          )
+        )
             .then((response) => response.json())
             .then((data) => {
                 const [longitude, latitude] = data.features[0].center;
