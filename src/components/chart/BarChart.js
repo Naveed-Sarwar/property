@@ -24,16 +24,17 @@ export default function BarChart() {
         responsive: true,
         plugins: {
             legend: {
-                labels: {
-                    color: "#200955",
-                }
+
+
+                display: false
+
             },
             title: {
                 display: true,
-                text: "",
+                text: "Monthly AirBnb Revenue Estimate",
                 color: "#200955",
                 font: {
-                    size: 18,
+                    size: 20,
                 }
             },
         },
@@ -45,9 +46,10 @@ export default function BarChart() {
                 ticks: {
                     beginAtZero: true,
                     color: "#200955",
+                    callback: (value) => `$${value}`,
                     font: {
                         size: 18,
-                     
+
                     },
                     padding: 20,
 
@@ -60,14 +62,14 @@ export default function BarChart() {
                 ticks: {
                     color: "#200955",
                     font: {
-                       size: 18,
+                        size: 18,
                     }
                 }
             },
         },
     };
 
-    
+
     return (
         <div>
 
@@ -78,7 +80,7 @@ export default function BarChart() {
                         labels: "months" == 'months' ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] : labels,
                         datasets: [{
                             label: 'My First Dataset',
-                            data: [5000 , 10000 , 15000 , 20000 , 25000 , 30000 , 35000 , 40000, 45000, 35000 , 20000 , 15000],
+                            data: [5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 35000, 20000, 15000],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(255, 159, 64, 0.2)',

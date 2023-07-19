@@ -47,45 +47,50 @@ import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 const Map = () => {
-    const mapContainer = useRef(null);
-    const map = useRef(null);
+  const mapContainer = useRef(null);
+  const map = useRef(null);
 
-    useEffect(() => {
-        mapboxgl.accessToken =
-            'pk.eyJ1IjoiYWFzdGhpIiwiYSI6ImNsaTAweHljNTA5enozbHg3aHV1eXdkbnYifQ.g492HR4sB2y-0uOX8ddQaw';
+  useEffect(() => {
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoiYWFzdGhpIiwiYSI6ImNsaTAweHljNTA5enozbHg3aHV1eXdkbnYifQ.g492HR4sB2y-0uOX8ddQaw';
 
-        map.current = new mapboxgl.Map({
-            container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-74.5, 40],
-            zoom: 4,
-        });
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-74.5, 40],
+      zoom: 9,
+    });
 
-        const placeName = '367 W Clearview Ave, State College, PA 16803';
+    map.current.addControl(new mapboxgl.NavigationControl());
 
-        fetch(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-              placeName
-            )}.json?access_token=${mapboxgl.accessToken}`
-          )
-            .then((response) => response.json())
-            .then((data) => {
-                const [longitude, latitude] = data.features[0].center;
+    const placeName = '367 W Clearview Ave, State College'; // Specific location address
 
-                // Set the center of the map to the specific place
-                map.current.setCenter([longitude, latitude]);
+    // Use Mapbox Geocoding API directly via fetch
+    fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+        placeName
+      )}.json?access_token=${mapboxgl.accessToken}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const [longitude, latitude] = data.features[0].center;
 
-                // Add a marker to the map
-                new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map.current);
-            })
-            .catch((error) => {
-                console.error('Error:', error)
+        // Set the center of the map to the specific place
+        map.current.setCenter([longitude, latitude]);
 
-            });
-    }, []);
+        // Add a marker to the map
+        new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map.current);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
 
+    return () => {
+      map.current.remove();
+    };
+  }, []);
 
-    return <div style={{ position: "relative", height: '400px', width: '100%' }} ref={mapContainer} />
+  return <div className="z-100 h-64 m-0 p-0" style={{ height: '400px', width: '100%', margin: 0, padding: 0 }}   ref={mapContainer} />;
 };
 
 export default Map;

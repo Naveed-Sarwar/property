@@ -30,6 +30,7 @@ export default function Page() {
     const [expenses, setExpenses] = useState(false);
     return (
         <>
+            <p className="py-3 text-center text-4xl font-semibold">A S S T H I</p>
             <div className='mx-4  md:w-9/12 md:mx-auto'>
                 <div className='grid gap-4 mt-6 grid-cols-2 md:grid-cols-12'>
                     <div className="md:col-span-7">
@@ -82,18 +83,18 @@ export default function Page() {
 
                     <p className='text-[#2e2e2e] pt-2 pb-5'>View property on</p>
                     <div className='flex gap-2'>
-                      <Link target="_blank" href="https://www.redfin.com/PA/State-College/367-W-Clearview-Ave-16803/home/119393987">
-                        <div className='bg-[red] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>R</div>
-                        </Link> 
-                       <Link target="_blank" href="https://data.rabbu.com/e/BMZzZ">
-                   
-                          <div className='bg-[purple] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>V</div>
-                          </Link>     </div>
+                        <Link target="_blank" href="https://www.redfin.com/PA/State-College/367-W-Clearview-Ave-16803/home/119393987">
+                            <div className='bg-[red] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>R</div>
+                        </Link>
+                        <Link target="_blank" href="https://www.zillow.com/homes/For-Sale-367-W-Clearview-Ave,-State-College,-PA-16803_rb/75205491_zpid/">
+
+                            <div className='bg-[purple] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>Z</div>
+                        </Link>     </div>
                 </div>
                 <br />
                 <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Revenue Projection</p>
                 <BarChart />
-                <p className='text-center text-[#a9a9a9]'>Seasonalized based on a market RevPAN of $220</p>
+                <p className='text-center text-[#a9a9a9]'>Seasonalized based on a market RevPAN of $474</p>
                 <br />
                 <br />
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
@@ -136,18 +137,16 @@ export default function Page() {
                 <br />  <div className='border-[1px] rounded-[5px] ' >
                     <div className='flex px-4 py-4 justify-between'>
                         <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Calculator</p>
-                        <button className='border-[1px] rounded-[5px] py-1 px-4'>Edit Preference</button>
-
                     </div>
                     <hr />
                     <br />
                     <div className='flex justify-evenly'>
                         <div className='flex flex-col items-center'>
-                            <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Cape Rate</p>
+                            <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Cap Rate</p>
                             <p className='text-[#200955]'><span className='font-bold text-[1.1rem] leading-[2rem]'>41%</span></p>
                         </div>
                         <div className='flex flex-col items-center'>
-                            <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Gross Yeild</p>
+                            <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Gross Yield</p>
                             <p className='text-[#200955]'><span className='font-bold text-[1.1rem] leading-[2rem]'>49.4%</span></p>
                         </div>
                         <div className='flex flex-col items-center'>
