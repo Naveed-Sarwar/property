@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.15.2",
     "chart.js": "^4.3.0",
     "mapbox-gl": "^2.14.1",
     "next": "13.4.3",

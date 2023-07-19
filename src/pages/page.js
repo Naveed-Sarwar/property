@@ -84,8 +84,11 @@ export default function Page() {
                     <div className='flex gap-2'>
                       <Link target="_blank" href="https://www.redfin.com/PA/State-College/367-W-Clearview-Ave-16803/home/119393987">
                         <div className='bg-[red] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>R</div>
-                        </Link>   <div className='bg-[purple] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>V</div>
-                    </div>
+                        </Link> 
+                       <Link target="_blank" href="https://data.rabbu.com/e/BMZzZ">
+                   
+                          <div className='bg-[purple] border-[0.5px] border-black text-white h-10 font-bold text-[1.2rem] w-10 rounded-full  flex items-center justify-center'>V</div>
+                          </Link>     </div>
                 </div>
                 <br />
                 <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Revenue Projection</p>
