@@ -83,7 +83,7 @@ const Map = () => {
       });
   }, []);
 
-  return <div style={{ height: '400px', width: '100%' }} ref={mapContainer} />;
+  return <div style={{position: "relative", height: '400px', width: '100%' }} ref={mapContainer} />;
 };
 
 export default Map;
