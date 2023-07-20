@@ -17,7 +17,14 @@ import Chart from '@/components/chart/BarChart'
 import BarChart from '@/components/chart/BarChart'
 import Map from '@/components/map/Map'
 import Link from 'next/link';
+import One from "../../assets/1.jpeg";
+import Two from "../../assets/2.jpg";
+import Three from "../../assets/3.jpeg";
+import Four from "../../assets/4.jpeg";
 // import styles from "../styles/swiper-custom.css";
+import PropertyOne from "../../assets/property-one.jpg";
+import PropertyTwo from "../../assets/property-two.jpg";
+import PropertyImg from "../../assets/property-img.jpg";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
@@ -41,9 +48,22 @@ export default function Page() {
     const [downPaymentMin, setDownPaymentMin] = useState("70,000");
     const [downPaymentMax, setDownPaymentMax] = useState("20");
     const [loanClosingCost, setLoanClosingCost] = useState("1.5");
+    const [revpan, setRevpan] = useState("474");
+    const [otherIncome, setOtherIncome] = useState("0");
+    const [channelFess, setChanneleFees] = useState("3");
+    const [projectManagementFee, setProjectManagementFee] = useState("0");
+    const [supplyFee, setSupplyFee] = useState("144");
+    const [propertyTaxes, setPropertyTaxes] = useState("292");
+    const [insurance, setInsurance] = useState("146");
+    const [hoa, setHoa] = useState("0");
+    const [utilityOne, setUtilityOne] = useState("721");
+    const [utilityTwo, setUtilityTwo] = useState("5");
+    const [maintenance, setMaintenance] = useState("721");
+    const [otherExpensesMin, setOtherExpensesMin] = useState("0");
+    const [otherExpensesMax, setOtherExpensesMax] = useState("0");
     return (
         <>
-            <p className="py-3 text-center text-4xl font-semibold">A S S T H I</p>
+            <p className="py-3 text-center text-4xl font-semibold">A A S T H I</p>
             <div className='mx-4  md:w-9/12 md:mx-auto'>
                 <div className='grid gap-4 mt-6 grid-cols-2 md:grid-cols-12'>
                     <div className="md:col-span-7">
@@ -363,7 +383,7 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={revpan} onChange={(e) => setRevpan(e.target.value)} className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                         <p className='text-[#a0a0a0] pt-3 text-[0.9rem]'>$230 is the projected RevPan based on comparable Airbnbs for this specific property, according to our Airbnb Calculator.</p>
                                         <div className='flex items-center gap-1 pt-3 '>
@@ -372,7 +392,7 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input disabled placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input disabled placeholder='14,414' className='placeholder:text-[#200955] bg-[#f2f2f3] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
 
                                     </div>
@@ -383,16 +403,16 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input placeholder='' value={otherIncome} onChange={(e) => setOtherIncome(e.target.value)} className='placeholder:text-[#200955]  border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                         <p className='text-[#a0a0a0] pt-3 text-[0.9rem]'>$230 is the projected RevPan based on comparable Airbnbs for this specific property, according to our Airbnb Calculator.</p>
                                         <div className='flex items-center gap-1 pt-3 '>
-                                            <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Annual Revenue</label>
+                                            <label className='text-[1.125rem] leading-[1.75rem]  text-[#a0a0a0] pb-[0.5px]'>Annual Revenue</label>
                                             <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input disabled placeholder='459,400' className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input disabled placeholder='172,970' className='placeholder:text-[#200955] bg-[#f2f2f3]  border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                 </div>
@@ -404,8 +424,9 @@ export default function Page() {
                         <p className='text-[#200955] font-bold text-[1.1rem] leading-[2rem]'>Expenses</p>
                         <div className='flex gap-0 text-[#232323] font-bold items-center'>
                             <p>$2,455/mo</p>
-                            <MdKeyboardArrowRight fontSize={20} />
-                        </div>
+                            {
+                                expenses ? <MdKeyboardArrowDown fontSize={20} /> : <MdKeyboardArrowRight fontSize={20} />
+                            }                        </div>
                     </div>
 
                     {
@@ -421,7 +442,7 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={channelFess} onChange={(e) => setChanneleFees} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                     <div className='flex w-full flex-col pt-4'>
@@ -431,7 +452,7 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={projectManagementFee} onChange={(e) => setProjectManagementFee(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                     <div className='flex w-full flex-col pt-3'>
@@ -441,7 +462,7 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={supplyFee} onChange={(e) => setSupplyFee(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex gap-1 items-center'>
@@ -449,7 +470,7 @@ export default function Page() {
                                             <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={propertyTaxes} onChange={(e) => setPropertyTaxes(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                     <div className='flex w-full flex-col pt-3'>
@@ -459,7 +480,7 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={insurance} onChange={(e) => setInsurance(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
@@ -467,7 +488,7 @@ export default function Page() {
                                         </div>
 
                                         <div className='relative '>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={hoa} onChange={(e) => setHoa(e.target.value)} className='border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>
                                     <div className='flex w-full flex-col pt-3'>
@@ -478,11 +499,11 @@ export default function Page() {
                                         <div className='flex justify-between'>
                                             <div className='relative w-full '>
                                                 <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                                <input className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
+                                                <input value={utilityOne} onChange={(e) => setUtilityOne(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
                                             </div>
                                             <div className='relative w-full '>
                                                 <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
-                                                <input className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
+                                                <input value={utilityTwo} onChange={(e) => setUtilityTwo(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
                                             </div>
                                         </div>
                                     </div>
@@ -493,7 +514,7 @@ export default function Page() {
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                            <input className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
+                                            <input value={maintenance} onChange={(e) => setMaintenance(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>     <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
@@ -503,11 +524,11 @@ export default function Page() {
                                         <div className='flex justify-between'>
                                             <div className='relative w-full '>
                                                 <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
-                                                <input className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
+                                                <input value={otherExpensesMin} onChange={(e) => setOtherExpensesMin(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-l-[5px] h-10 outline-none pl-6 w-full' />
                                             </div>
                                             <div className='relative w-full '>
                                                 <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
-                                                <input className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
+                                                <input value={otherExpensesMax} onChange={(e) => setOtherExpensesMax(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-r-[5px] h-10 outline-none pl-6 w-full' />
                                             </div>
                                         </div>
                                     </div>
@@ -552,44 +573,47 @@ export default function Page() {
                 </div>
                 <br />
                 <br />
-                <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Location</p>
-                <br />
+                {/* <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Location</p> */}
+                {/* <br /> */}
 
-                <Map />
-                <br />
-                <br />
-                <br />
+                {/* <Map /> */}
+                {/* <br /> */}
+                {/* <br /> */}
+                {/* <br /> */}
                 <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Market Data</p>
                 <p className='text-[#2e2e2e] pt-2 pb-5'>Performance of Airbnbs in the overall market for State College, PA 16803. Data displayed is not impacted by filters in this search.</p>
                 <Tab />
                 <button className=' w-full text-center border-[1px] rounded-[0.375rem] font-medium text-[1.125rem] text-[#200955] leading-[1.75rem] hover:bg-slate-50 py-1 my-4'>View more market data for State College</button>
-                <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955] py-8'>Nearby Airbnbs</p>
+                <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955] py-8'>Explore recent offers and recently sold homes in State College</p>
 
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
-                    <Property />
-                    <Property />
-                    <Property />
-                    <Property />
+             <Link href={"https://data.rabbu.com/e/F8WzS"} target="_blank">
+                   <Property img={One} price={"2,776"} />
+                   </Link>            <Property img={Two} price={"29,897"} />
+                    <Property img={Three} price="9,158" />
+                    <Property img={Four} price={"4,983"} />
                 </div>
                 <br />
-
-                <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>For Sale in Centre County</p>
+                <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Recently Sold in State College,PA</p>
                 <p className='text-[#2e2e2e] pt-2 pb-5'>Nearby properties for sale with positive cash-on-cash returns</p>
-
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+                    <Link target='_blank' href={"https://buy.rabbu.com/airbnb-for-sale/2280-bristol-ave-state-college-pa-16801-dnx"}>
+                        <PropertyCard img={PropertyImg} price={"390k"} beds={"3"} description={"2280 Bristol Ave"} location={"State College, PA 16801"} bath={"3"} area={"1872"} revenue={"10,132"} capRate={"25.7"} gross={"31.6"} cash={"60.5"} />
+                    </Link>  <Link href={"https://buy.rabbu.com/airbnb-for-sale/101-timber-ln-state-college-pa-16801-wmg"} target='_blank'>
 
-                    <PropertyCard />
-                    <PropertyCard />
-                    <PropertyCard />
-                </div>
+                        <PropertyCard img={PropertyOne} price={"650k"} beds={"4 "} description={"101 Timber Ln"} location={"State College, PA 16801"} bath={"3"} area={"6576"} revenue={"9,310"} capRate={"13.3"} gross={"17.2"} cash={"20.5"} />
+                    </Link>  <Link href={"https://buy.rabbu.com/airbnb-for-sale/190-sussex-dr-state-college-pa-16801-mdj"} target="_blank">
+                        <PropertyCard img={PropertyTwo} price={"660k"} description={"190 Sussex Dr"} location={"State College, PA 16801"} beds={"3"} bath={"3"} area={"2602"} revenue={"7,920"} gross={"14.4"} capRate={"10.9"} cash={"12.8"} />
+                    </Link>    </div>
                 <br /><br />
                 <div className='bg-[#f8f7f7] rounded-[0.75rem] p-[1rem] md:p-[5rem]'>
-                    <p className='font-bold text-[1.5rem] leading-[2rem] text-center text-[#200955] pb-10 md:pb-24'>Nearby Airbnbs for sale</p>
+                    <p className='font-bold text-[1.5rem] leading-[2rem] text-center text-[#200955] pb-10 md:pb-24'>Explore recent offers and recently sold homes in State College</p>
 
-                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'>Centre County Airbnbs For Sale</p>
-                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'>State College Airbnbs For Sale</p>
-                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'>Pennsylvania Airbnbs For Sale</p>
-                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'>16803 Airbnbs For Sale</p>
+                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'><Link href={"https://www.redfin.com/PA/State-College/116-Abbott-Ln-16801/home/119492827"} target='_blank'>116 Abbott Ln</Link></p>
+                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'><Link href={"https://www.redfin.com/PA/State-College/343-Oakwood-Ave-16803/home/119338864"} target='_blank'>343 Oakwood Ave</Link> </p>
+                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'><Link href={"https://www.redfin.com/PA/State-College/194-Sycamore-Dr-16801/home/178419006"} target='_blank'>194 Sycamore Dr</Link></p>
+                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'><Link href={"https://www.redfin.com/PA/State-College/1716-Woodledge-Cir-16803/home/119316708"} target='_blank'>1716 Woodledge Sir</Link></p>
+                    <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'><Link href={"https://www.redfin.com/PA/State-College/2012-Fairwood-Ln-16803/home/119315002"} target='_blank'>2012 Fairwood Ln</Link></p>
                 </div>
             </div>
         </>
