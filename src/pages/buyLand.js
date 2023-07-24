@@ -3,7 +3,7 @@ import Header from '@/components/header/Header';
 import React from 'react';
 
 import { list } from '@/components/constants/data';
-import LandMap from '@/components/map/LandMap';
+import LandMap from '@/components/map/landMap';
 
 
 const Buyland = () => {
