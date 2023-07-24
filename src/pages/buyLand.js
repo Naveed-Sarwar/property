@@ -1,6 +1,7 @@
 import BuyLandCard from '@/components/buyLandCard/BuyLandCard';
 import Header from '@/components/header/Header';
-import React from 'react'
+import React from 'react';
+
 import { list } from '@/components/constants/data';
 import LandMap from '@/components/map/landMap';
 
