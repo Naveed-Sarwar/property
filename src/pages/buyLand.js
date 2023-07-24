@@ -1,23 +1,11 @@
 import BuyLandCard from '@/components/buyLandCard/BuyLandCard';
 import Header from '@/components/header/Header';
 import React from 'react'
-// import { BiSolidLandscape } from "react-icons/bi";
-// import { BsFillPersonFill } from 'react-icons/bs';
-// import { AiFillPropertySafety, AiTwotoneTool } from "react-icons/ai";
-// import { FaTools } from "react-icons/fa";
-import MarketMap from '@/components/map/MarketMap';
 import { list } from '@/components/constants/data';
 import LandMap from '@/components/map/landMap';
 
 
 const Buyland = () => {
-    // const list = [
-    //     { title: "Buy Land", icon: <BiSolidLandscape fontSize={24} /> },
-    //     { title: "Potfolio", icon: <BsFillPersonFill fontSize={24} /> },
-    //     { title: "On ramp a property", icon: <AiFillPropertySafety fontSize={24} /> },
-    //     { title: "Use Your Land", icon: <FaTools fontSize={22} /> },
-    //     { title: "Build on Aasthi", icon: <AiTwotoneTool fontSize={24} /> }
-    // ]
     return (
         <div className='bg-[#121212] ' >
             <Header />
