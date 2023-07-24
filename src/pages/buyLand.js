@@ -33,7 +33,9 @@ const Buyland = () => {
             </div>
         </div>
     )
+
 }
 
 
-export default Buyland;
+
+export default Buyland
