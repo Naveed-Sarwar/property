@@ -8,7 +8,9 @@ import React from 'react'
 import MarketMap from '@/components/map/MarketMap';
 import { list } from '@/components/constants/data';
 import LandMap from '@/components/map/landMap';
-const BuyLand = () => {
+
+
+const Buyland = () => {
     // const list = [
     //     { title: "Buy Land", icon: <BiSolidLandscape fontSize={24} /> },
     //     { title: "Potfolio", icon: <BsFillPersonFill fontSize={24} /> },
@@ -40,9 +42,9 @@ const BuyLand = () => {
                 </div>
                 <br />
             </div>
-
         </div>
     )
 }
 
-export default BuyLand
+
+export default Buyland;
