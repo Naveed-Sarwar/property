@@ -573,15 +573,14 @@ export default function Page() {
                 </div>
                 <br />
                 <br />
-                {/* <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Location</p> */}
-                {/* <br /> */}
+                <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Location</p>
+                <br />
 
-                {/* <Map /> */}
-                {/* <br /> */}
-                {/* <br /> */}
-                {/* <br /> */}
-                <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Market Data</p>
-                <p className='text-[#2e2e2e] pt-2 pb-5'>Performance of Airbnbs in the overall market for State College, PA 16803. Data displayed is not impacted by filters in this search.</p>
+                <Map />
+                <br />
+                <br />
+                {/* <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Market Data</p> */}
+                {/* <p className='text-[#2e2e2e] pt-2 pb-5'>Performance of Airbnbs in the overall market for State College, PA 16803. Data displayed is not impacted by filters in this search.</p> */}
                 <Tab />
                 <button className=' w-full text-center border-[1px] rounded-[0.375rem] font-medium text-[1.125rem] text-[#200955] leading-[1.75rem] hover:bg-slate-50 py-1 my-4'>View more market data for State College</button>
                 <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955] py-8'>Explore recent offers and recently sold homes in State College</p>
