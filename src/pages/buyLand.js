@@ -3,7 +3,7 @@ import Header from '@/components/header/Header';
 import React from 'react';
 
 import { list } from '@/components/constants/data';
-import LandMap from '@/components/map/landMap';
+import LandMap from '@/components/map/LandMap';
 
 
 const Buyland = () => {
@@ -22,12 +22,12 @@ const Buyland = () => {
                     }
                 </div>
                 <div className='col-span-12 lg:col-span-10 pt-16'>
-                  <div className=' lg:mr-16'>
-                      <LandMap />
-                      </div>
-                <div className='flex flex-col lg:justify-start justify-center lg:items-start items-center'>
+                    <div className=' lg:mr-16'>
+                        <LandMap />
+                    </div>
+                    <div className='flex flex-col lg:justify-start justify-center lg:items-start items-center'>
                         <BuyLandCard />
-                   </div>
+                    </div>
                 </div>
                 <br />
             </div>
