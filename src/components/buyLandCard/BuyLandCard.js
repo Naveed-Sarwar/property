@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import React from 'react'
-import Land from "../../../assets/land.jpeg"
+import React from 'react';
+import Land from "../../../assets/land.jpeg";
 const BuyLandCard = () => {
     return (
         <div className='flex flex-col justify-center lg:justify-start lg:items-start items-center'>
@@ -13,6 +13,7 @@ const BuyLandCard = () => {
                 <span className='text-[#e0e0e0]'>2.3k</span><span className='text-[#9ca3af]'>USDC</span>
             </div>
         </div>
+
         </div>
     )
 }
