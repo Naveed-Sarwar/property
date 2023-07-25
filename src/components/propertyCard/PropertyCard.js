@@ -11,7 +11,7 @@ const PropertyCard = ({ img, price, beds, description, location, capRate, gross,
 
           <div className='flex gap-2 pt-2 items-center'>
             <p className='font-bold text-[#333333] text-[1.5rem]'>${price}</p>
-            <p className='bg-[#5FC65F] font-bold text-[0.875rem] h-6 px-2 rounded-xl text-white'>For Sale</p>
+            <p className='bg-[#5FC65F] font-bold text-[0.875rem] h-6 px-2 rounded-xl text-white'>Sold</p>
           </div>
           <p className='font-medium text-[1.125rem] leading-[1.75rem]'>{description}</p>
           <p className='font-normal text-[1.1rem] leading-[1.75rem]'>{location}</p>

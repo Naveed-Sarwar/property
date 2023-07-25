@@ -8,7 +8,7 @@ import LandMap from '@/components/map/LandMap';
 
 const Buyland = () => {
     return (
-        <div className='bg-[#121212] ' >
+        <div className='bg-[#1a1212] ' >
             <Header />
 
             <div className='grid grid-cols-12 gap-8'>

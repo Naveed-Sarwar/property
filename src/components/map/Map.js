@@ -96,8 +96,8 @@ const Map = () => {
     }, []);
 
     return (
-        <div>
-            <div ref={mapContainer} />
+        <div >
+            <div className='h-[300px] lg:h-[400px] w-full' ref={mapContainer} />
         </div>
     );
 };

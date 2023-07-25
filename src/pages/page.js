@@ -19,12 +19,12 @@ import Map from '@/components/map/Map'
 import Link from 'next/link';
 import One from "../../assets/1.jpeg";
 import Two from "../../assets/2.jpg";
-import Three from "../../assets/3.jpeg";
+import Three from "../../assets/3.jpg";
 import Four from "../../assets/4.jpeg";
 // import styles from "../styles/swiper-custom.css";
-import PropertyOne from "../../assets/property-one.jpg";
-import PropertyTwo from "../../assets/property-two.jpg";
-import PropertyImg from "../../assets/property-img.jpg";
+import PropertyOne from "../../assets/soldOne.webp";
+import PropertyTwo from "../../assets/soldTwo.webp";
+import PropertyThree from "../../assets/soldThree.webp";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
@@ -63,7 +63,7 @@ export default function Page() {
     const [otherExpensesMax, setOtherExpensesMax] = useState("0");
     return (
         <>
-            <p className="py-3 text-center text-4xl font-semibold">A A S T H I</p>
+            <p className="py-3 text-center text-4xl font-semibold text-[#DEBD6D] ">A A S T H I</p>
             <div className='mx-4  md:w-9/12 md:mx-auto'>
                 <div className='grid gap-4 mt-6 grid-cols-2 md:grid-cols-12'>
                     <div className="md:col-span-7">
@@ -586,25 +586,38 @@ export default function Page() {
                 <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955] py-8'>Explore recent offers and recently sold homes in State College</p>
 
                 <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
-             <Link href={"https://data.rabbu.com/e/F8WzS"} target="_blank">
-                   <Property img={One} price={"2,776"} />
-                   </Link>            <Property img={Two} price={"29,897"} />
-                    <Property img={Three} price="9,158" />
-                    <Property img={Four} price={"4,983"} />
+                    <Link href={"https://airbnb.com/rooms/15986683"} target="_blank">
+                        <Property img={One} price={"2,372"} />
+                    </Link>
+                    <Link href={"https://airbnb.com/rooms/53296055"} target="_blank">
+                        <Property img={Two} price={"25,550"} />
+                    </Link>
+                    <Link href={"https://airbnb.com/rooms/4279441"} target="_blank">
+                        <Property img={Three} price="1,825" />
+                    </Link>
+                    <Link href={"https://airbnb.com/rooms/37485559"} target="_blank">
+                        <Property img={Four} price={"27,253"} />
+                    </Link>
                 </div>
                 <br />
                 <p className='font-bold text-[1.5rem] leading-[2rem] text-[#200955]'>Recently Sold in State College,PA</p>
                 <p className='text-[#2e2e2e] pt-2 pb-5'>Nearby properties for sale with positive cash-on-cash returns</p>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                     <Link target='_blank' href={"https://buy.rabbu.com/airbnb-for-sale/2280-bristol-ave-state-college-pa-16801-dnx"}>
-                        <PropertyCard img={PropertyImg} price={"390k"} beds={"3"} description={"2280 Bristol Ave"} location={"State College, PA 16801"} bath={"3"} area={"1872"} revenue={"10,132"} capRate={"25.7"} gross={"31.6"} cash={"60.5"} />
+                        <PropertyCard img={PropertyOne} price={"407,000"} beds={"3"} description={"716 Tanager Dr"} location={"State College, PA 16803"} bath={"2"} area={"1,544"} revenue={"10,132"} capRate={"25.7"} gross={"31.6"} cash={"60.5"} />
                     </Link>  <Link href={"https://buy.rabbu.com/airbnb-for-sale/101-timber-ln-state-college-pa-16801-wmg"} target='_blank'>
 
-                        <PropertyCard img={PropertyOne} price={"650k"} beds={"4 "} description={"101 Timber Ln"} location={"State College, PA 16801"} bath={"3"} area={"6576"} revenue={"9,310"} capRate={"13.3"} gross={"17.2"} cash={"20.5"} />
+                        <PropertyCard img={PropertyTwo} price={"389,900"} beds={"3"} description={"738 Teal Ln"} location={"State College, PA 16803"} bath={"2.5"} area={"2,051"} revenue={"9,310"} capRate={"13.3"} gross={"17.2"} cash={"20.5"} />
                     </Link>  <Link href={"https://buy.rabbu.com/airbnb-for-sale/190-sussex-dr-state-college-pa-16801-mdj"} target="_blank">
-                        <PropertyCard img={PropertyTwo} price={"660k"} description={"190 Sussex Dr"} location={"State College, PA 16801"} beds={"3"} bath={"3"} area={"2602"} revenue={"7,920"} gross={"14.4"} capRate={"10.9"} cash={"12.8"} />
+                        <PropertyCard img={PropertyThree} price={"630,000"} description={"133 Southview Cir"} location={"State College, PA 16801"} beds={"5"} bath={"4"} area={"3,724"} revenue={"7,920"} gross={"14.4"} capRate={"10.9"} cash={"12.8"} />
                     </Link>    </div>
                 <br /><br />
+                {/* <iframe
+src="https://www.chatbase.co/chatbot-iframe/uDPj-GB8jN5jChfqXV6R_"
+width="100%"
+style={{height: '100%', minheight: '700px'}}
+frameborder="0"
+></iframe> */}
                 <div className='bg-[#f8f7f7] rounded-[0.75rem] p-[1rem] md:p-[5rem]'>
                     <p className='font-bold text-[1.5rem] leading-[2rem] text-center text-[#200955] pb-10 md:pb-24'>Explore recent offers and recently sold homes in State College</p>
 
