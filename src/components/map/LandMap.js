@@ -11,8 +11,8 @@ const LandMap = () => {
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-74.5, 40],
-            zoom: 9,
+            center: [-84.5, 50],
+            zoom: 2,
             attributionControl: false
         });
 

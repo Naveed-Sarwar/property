@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
@@ -35,7 +35,6 @@ export default function Page() {
     const [amortization, setAmortization] = useState(true);
     const [revenue, setRevenue] = useState(false);
     const [expenses, setExpenses] = useState(false);
-
     const [pricePurchaseFactor, setPricePurchaseFactor] = useState("0");
     const [purchasePrice, setPurchasePrice] = useState("350,000");
     const [closingCosts, setClosingCosts] = useState("2.75");
@@ -61,8 +60,79 @@ export default function Page() {
     const [maintenance, setMaintenance] = useState("721");
     const [otherExpensesMin, setOtherExpensesMin] = useState("0");
     const [otherExpensesMax, setOtherExpensesMax] = useState("0");
+    const [show, setShow] = useState(false);
+    const [showCap, setShowCap] = useState(false);
+    const [showGross, setShowGross] = useState(false);
+    const [showCash, setShowCash] = useState(false);
+    const [showClosing, setShowClosing] = useState(false);
+    const [showFurnishing, setShowFurnishing] = useState(false);
+    const [showInitial, setShowInitial] = useState(false);
+    const [showInterest, setShowInerest] = useState(false);
+    const [showAmortization, setShowAmortization] = useState(false);
+    const [showDown, setShowDown] = useState(false);
+    const [showLoan, setShowLoan] = useState(false);
+    const [showType, setShowType] = useState(false);
+    const [showRev, setShowRev] = useState(false);
+    const [showMonthly, setShowMonthly] = useState(false);
+    const [showOther, setShowOther] = useState(false);
+    const [showAnnual, setShowAnnual] = useState(false);
+    const [showChannel, setShowChannel] = useState(false);
+    const [showProperty, setShowProperty] = useState(false);
+    const [showSupply, setShowSupply] = useState(false);
+    const [showTaxes, setShowTaxes] = useState(false);
+    const [showInsurance, setShowInsurance] = useState(false);
+    const [showHoa, setShowHoa] = useState(false);
+    const [showUtility, setShowUtility] = useState(false);
+    const [showMaintainance, setShowMaintainance] = useState(false);
+    const [showExpenses, setShowExpenses] = useState(false);
+    const tooltipRef = useRef(null);
+
+    const handleShow = () => {
+        setShow(!show);
+    }
+
+    const handleClickOutside = (event) => {
+        if (tooltipRef.current && !tooltipRef.current.contains(event.target)) {
+            setShow(false);
+            setShowCap(false);
+            setShowGross(false);
+            setShowCash(false);
+            setShowClosing(false);
+            setShowFurnishing(false);
+            setShowInitial(false);
+            setShowInerest(false);
+            setShowAmortization(false);
+            setShowDown(false);
+            setShowLoan(false);
+            setShowType(false);
+            setShowRev(false);
+            setShowMonthly(false);
+            setShowOther(false);
+            setShowAnnual(false);
+            setShowChannel(false);
+            setShowProperty(false);
+            setShowSupply(false);
+            setShowTaxes(false);
+            setShowInsurance(false);
+            setShowHoa(false);
+            setShowUtility(false);
+            setShowMaintainance(false);
+            setShowExpenses(false);
+        }
+    };
+
+    useEffect(() => {
+        // Add event listener when the component mounts
+        document.addEventListener('mousedown', handleClickOutside);
+
+        // Remove event listener when the component unmounts
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <>
+        <div>
             <p className="py-3 text-center text-4xl font-semibold text-[#DEBD6D] ">A A S T H I</p>
             <div className='mx-4  md:w-9/12 md:mx-auto'>
                 <div className='grid gap-4 mt-6 grid-cols-2 md:grid-cols-12'>
@@ -134,14 +204,19 @@ export default function Page() {
                     <div className='border-l-[4px] pl-3'>
                         <div className='flex gap-1 items-center'>
                             <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Revenue</p>
-                            <FiAlertCircle className='text-[#a0a0a0] -mt-1' />
-                        </div>
+                            <FiAlertCircle onClick={handleShow} className='text-[#a0a0a0] cursor-pointer -mt-1' />
+                            {
+                                show && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-36 border-[1px] p-2 rounded-md bg-white'>This is the Seasonalized Monthly Revenue based on projections from our Airbnb Calculator.</p>
+                            }   </div>
                         <p className='text-[#200955]'><span className='font-bold text-[1.5rem] leading-[2rem]'>$14,414</span>/mo</p>
                     </div>
                     <div className='border-l-[4px] pl-3'>
                         <div className='flex gap-1 items-center'>
                             <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Cap Rate</p>
-                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                            <FiAlertCircle onClick={() => setShowCap(!showCap)} className='text-[#a0a0a0] cursor-pointer -mt-1' />
+                            {
+                                showCap && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[17rem] border-[1px] p-2 rounded-md bg-white'>The capitalization rate indicates the rate of return of a property and is calculated by dividing net income by property asset value. These rates can be used to compare similar investments within the market.</p>
+                            }
                         </div>
 
                         <p className='text-[#200955]'><span className='font-bold text-[1.5rem] leading-[2rem]'>41%</span></p>
@@ -149,7 +224,10 @@ export default function Page() {
                     <div className='border-l-[4px] pl-3'>
                         <div className='flex gap-1 items-center'>
                             <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Gross Yeild</p>
-                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                            <FiAlertCircle onClick={() => setShowGross(!showGross)} className='text-[#a0a0a0] cursor-pointer -mt-1' />
+                            {
+                                showGross && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[17rem] border-[1px] p-2 rounded-md bg-white'>The gross yield rate indicates overall rate of return and is calculated by dividing annual revenue by property asset value. These rates can be used to compare similar investments across multiple asset markets.</p>
+                            }
                         </div>
 
                         <p className='text-[#200955]'><span className='font-bold text-[1.5rem] leading-[2rem]'>49.4%</span></p>
@@ -157,7 +235,10 @@ export default function Page() {
                     <div className='border-l-[4px] ]  pl-3'>
                         <div className='flex gap-1 items-center'>
                             <p className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0]'>Cash on Cash</p>
-                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                            <FiAlertCircle onClick={() => setShowCash(!showCash)} className='text-[#a0a0a0] cursor-pointer -mt-1' />
+                            {
+                                showCash && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[21rem] border-[1px] p-2 rounded-md bg-white'>The Cash-on-Cash rate indicates rate of return based on the cash investment used to secure financing and is calculated by dividing net income by upfront cash investment. These rates can be used to compare the investment opportunity of available cash.</p>
+                            }
                         </div>
 
 
@@ -226,9 +307,11 @@ export default function Page() {
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex gap-1 items-center'>
-                                            <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Clothing Costs</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
-                                        <div className='relative '>
+                                            <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Closing Costs</label>
+                                            <FiAlertCircle onClick={() => setShowClosing(!showClosing)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
+                                        {
+                                            showClosing && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-7 border-[1px] p-2 rounded-md bg-white'>Closing Costs are the fees and charges in excess of the purchase price of the property due at the closing of a real estate transaction. On average, this is 1.5% of Purchase Price.</p>
+                                        }   <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
                                             <input value={closingCosts} onChange={(e) => setClosingCosts(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
@@ -241,8 +324,11 @@ export default function Page() {
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
-                                            <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Furnishing Costs</label>  <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Furnishing Costs</label>
+                                            <FiAlertCircle onClick={() => setShowFurnishing(!showFurnishing)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showFurnishing && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-48 border-[1px] p-2 rounded-md bg-white'>Furnishing Costs are the average costs to fully furnish a Short Term Rental property based on the property’s bedroom count.</p>
+                                            }   </div>
 
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
@@ -252,8 +338,10 @@ export default function Page() {
 
                                         <div className='flex items-center gap-1'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Initial Expenses</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowInitial(!showInitial)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showInitial && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[13rem] border-[1px] p-2 rounded-md bg-white'>Initial Expenses are the costs to prepare the property to be a Short Term Rental, including tech set up and consumables that will be used by guests.</p>
+                                            }    </div>
 
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
@@ -293,7 +381,10 @@ export default function Page() {
                                         </div>
                                         <div className='flex items-center gap-1 pt-3'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Interest Rate</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            <FiAlertCircle onClick={() => setShowInerest(!showInterest)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showInterest && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[22rem] border-[1px] p-2 rounded-md bg-white'>A mortgage rate is the rate of interest charged on a mortgage. Mortgage rates are determined by the lender and can be either fixed, staying the same for the term of the mortgage, or variable, fluctuating with a benchmark interest rate. Mortgage rates vary for borrowers based on their credit profile.</p>
+                                            }
                                         </div>
 
                                         <div className='relative '>
@@ -303,7 +394,11 @@ export default function Page() {
                                         {
                                             amortization ? <> <div className='flex items-center gap-1 pt-3'>
                                                 <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Amortization Term</label>
-                                                <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                                <FiAlertCircle onClick={() => setShowAmortization(!showAmortization)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                                {
+                                                    showAmortization && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[13rem] border-[1px] p-2 rounded-md bg-white'>
+                                                        The number of years over which a loan will be completely paid by regular monthly payments of principal and interest. Terms of 20, 25, and 30 years are common.
+                                                    </p>}
                                             </div>
                                                 <div className='relative '>
                                                     <input value={amortizationTerm} onChange={(e) => setAmortization(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -320,8 +415,10 @@ export default function Page() {
                                     loan == 0 ? <>
                                         <div className='flex items-center gap-1 pt-3'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Down Payment</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowDown(!showDown)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showDown && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[21rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    A down payment on a house is the sum of money that the buyer pays upfront in a real estate transaction. The amount paid is usually a percentage of the purchase price and can range from as little as 15% to as much as 50% for a property being used as a rental investment.                                                    </p>}  </div>
 
                                         <div className='flex justify-between'>
                                             <div className='relative w-full '>
@@ -335,8 +432,11 @@ export default function Page() {
                                         </div>
                                         <div className='flex items-center gap-1 pt-3'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Loan Closing Costs</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowLoan(!showLoan)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showLoan && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[13rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Loan Closing Costs are the fees and charges in excess of the loan amount to secure the financing to invest in the property. On average, this is 2.75% of the Loan Amount.</p>
+                                            }  </div>
 
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5  text-[1.2rem]'>%</p>
@@ -344,8 +444,11 @@ export default function Page() {
                                         </div>
                                         <div className='flex items-center gap-1 pt-3'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Interest Type</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowType(!showType)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showType && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[19rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    An interest-only mortgage is a type of mortgage in which the mortgagor (the borrower) is required to pay only the interest on the loan for a certain period. The principal is repaid either in a lump sum at a specified date, or in subsequent payments.</p>
+                                            }    </div>
                                         <div className='grid grid-cols-2 gap-4'>
                                             <button onClick={() => setAmortization(!amortization)} className={`h-10 border-[1px] rounded-[5px] text-[1.125rem] leading-[1.75rem] border-solid   ${amortization ? "bg-[#200955] text-white" : "bg-white hover:bg-[#f7f7f7] text-[#200955]"}`}>Amortization</button>
                                             <button onClick={() => setAmortization(!amortization)} className={`h-10 border-[1px] rounded-[5px] text-[1.125rem] leading-[1.75rem] border-solid   ${amortization ? "bg-white hover:bg-[#f7f7f7] text-[#200955]" : "bg-[#200955] text-white "}`}>Interest Only</button>
@@ -379,8 +482,11 @@ export default function Page() {
                                     <div>
                                         <div className='flex items-center gap-1 pt-3 '>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>RevPAN</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowRev(!showRev)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showRev && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[16rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Revenue per Available Night (RevPAN) is the average revenue of each night that the property is available to rent out over an entire year. RevPAN is calculated by multiplying Average Daily Rate (ADR) and Occupancy.</p>
+                                            }     </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
                                             <input value={revpan} onChange={(e) => setRevpan(e.target.value)} className='placeholder:text-[#200955] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -388,8 +494,11 @@ export default function Page() {
                                         <p className='text-[#a0a0a0] pt-3 text-[0.9rem]'>$230 is the projected RevPan based on comparable Airbnbs for this specific property, according to our Airbnb Calculator.</p>
                                         <div className='flex items-center gap-1 pt-3 '>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Monthly Revenue</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowMonthly(!showMonthly)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showMonthly && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[13rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    This is the seasonalized average monthly revenue calculated by multiplying RevPAN by 365 days and dividing that by 12 months, and then adding the Other Income.                                                    </p>
+                                            }     </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
                                             <input disabled placeholder='14,414' className='placeholder:text-[#200955] bg-[#f2f2f3] border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -399,8 +508,11 @@ export default function Page() {
                                     <div>
                                         <div className='flex items-center gap-1 pt-3 '>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Other Income</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowOther(!showOther)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showOther && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[9rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    This can include any other forms of revenue that this property can generate monthly.           </p>
+                                            }     </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
                                             <input placeholder='' value={otherIncome} onChange={(e) => setOtherIncome(e.target.value)} className='placeholder:text-[#200955]  border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -408,8 +520,11 @@ export default function Page() {
                                         <p className='text-[#a0a0a0] pt-3 text-[0.9rem]'>$230 is the projected RevPan based on comparable Airbnbs for this specific property, according to our Airbnb Calculator.</p>
                                         <div className='flex items-center gap-1 pt-3 '>
                                             <label className='text-[1.125rem] leading-[1.75rem]  text-[#a0a0a0] pb-[0.5px]'>Annual Revenue</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowAnnual(!showAnnual)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showAnnual && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[13rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    This is the seasonalized average annual revenue calculated by multiplying RevPAN by 365 days and then adding the Other Income multiplied by 12 months.           </p>
+                                            }      </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
                                             <input disabled placeholder='172,970' className='placeholder:text-[#200955] bg-[#f2f2f3]  border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -438,8 +553,11 @@ export default function Page() {
 
                                         <div className='flex items-center gap-1  '>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Channel Fees</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowChannel(!showChannel)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showChannel && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[13rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Channel Fee is the fees and charges associated with listing your property on booking platforms like Airbnb and Vrbo. On average, this is 3% of Revenue  </p>
+                                            }      </div>
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
                                             <input value={channelFess} onChange={(e) => setChanneleFees} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -448,7 +566,11 @@ export default function Page() {
                                     <div className='flex w-full flex-col pt-4'>
                                         <div className='flex items-center gap-1 '>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Project Management Fee</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            <FiAlertCircle onClick={() => setShowProperty(!showProperty)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showProperty && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[15rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Property Management Fee is the fees associated to a 3rd party property manager managing the property on your behalf. On average, this is 25% of Revenue after channel fees are deducted.</p>
+                                            }
                                         </div>
                                         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
@@ -458,8 +580,11 @@ export default function Page() {
                                     <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Supply Fees</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowSupply(!showSupply)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showSupply && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[7rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Supply Fees are costs to cover the consumables by the guests.</p>
+                                            }       </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
                                             <input value={supplyFee} onChange={(e) => setSupplyFee(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -467,8 +592,11 @@ export default function Page() {
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex gap-1 items-center'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Property Taxes</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
-                                        <div className='relative '>
+                                            <FiAlertCircle onClick={() => setShowTaxes(!showTaxes)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />     </div>
+                                        {
+                                            showTaxes && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[26px] border-[1px] p-2 rounded-md bg-white'>
+                                                This estimate is based on the home value, property type, and an estimated local tax rate. Actual rate or taxes assessed may vary.</p>
+                                        }         <div className='relative '>
                                             <p className='absolute right-2 top-1.5 text-[#200955] text-[1.2rem]'>%</p>
                                             <input value={propertyTaxes} onChange={(e) => setPropertyTaxes(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
@@ -476,15 +604,23 @@ export default function Page() {
                                     <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Insurance</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowInsurance(!showInsurance)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showInsurance && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[12rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Most lenders require homeowners insurance, which protects your home and property. This is an estimate, and actual rate may vary.</p>
+                                            }     </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5 text-[#200955] text-[1.2rem]'>$</p>
                                             <input value={insurance} onChange={(e) => setInsurance(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
                                         </div>
                                     </div>            <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
-                                            <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>HOA Fees</label>  <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>HOA Fees</label>
+                                            <FiAlertCircle onClick={() => setShowHoa(!showHoa)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showHoa && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[15rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Some properties require monthly HOA dues to cover common amenities or services. This is an estimate based on provided information in the MLS, and actual rate may vary.</p>
+                                            }
                                         </div>
 
                                         <div className='relative '>
@@ -494,8 +630,11 @@ export default function Page() {
                                     <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Utilities</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowUtility(!showUtility)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {
+                                                showUtility && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[7rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Utilities are a monthly expense calculated as percentage of revenue.</p>
+                                            }     </div>
                                         <div className='flex justify-between'>
                                             <div className='relative w-full '>
                                                 <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
@@ -510,8 +649,11 @@ export default function Page() {
                                     <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Maintenance</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowMaintainance(!showMaintainance)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {showMaintainance
+                                                && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[9rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Maintenance costs are a monthly expense calculated as percentage of revenue.</p>
+                                            }     </div>
                                         <div className='relative '>
                                             <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
                                             <input value={maintenance} onChange={(e) => setMaintenance(e.target.value)} className=' border-[#e5e7eb] border-[1px] rounded-[5px] h-10 outline-none pl-6 w-full' />
@@ -519,8 +661,11 @@ export default function Page() {
                                     </div>     <div className='flex w-full flex-col pt-3'>
                                         <div className='flex items-center gap-1'>
                                             <label className='text-[1.125rem] leading-[1.75rem] text-[#a0a0a0] pb-[0.5px]'>Other Expenses</label>
-                                            <FiAlertCircle className='text-[#a0a0a0] -mt-1 cursor-pointer' />
-                                        </div>
+                                            <FiAlertCircle onClick={() => setShowExpenses(!showExpenses)} className='text-[#a0a0a0] -mt-1 cursor-pointer' />
+                                            {showExpenses
+                                                && <p ref={tooltipRef} className='absolute w-52 border-[#DEBD6D] z-20 mt-[9rem] border-[1px] p-2 rounded-md bg-white'>
+                                                    Other Expenses are a monthly expense calculated as percentage of revenue.</p>
+                                            }     </div>
                                         <div className='flex justify-between'>
                                             <div className='relative w-full '>
                                                 <p className='absolute left-2 top-1.5  text-[1.2rem]'>$</p>
@@ -628,6 +773,6 @@ frameborder="0"
                     <p className='text-[1.125rem] leading-[1.75rem] cursor-pointer hover:underline'><Link href={"https://www.redfin.com/PA/State-College/2012-Fairwood-Ln-16803/home/119315002"} target='_blank'>2012 Fairwood Ln</Link></p>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
