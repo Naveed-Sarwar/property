@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { list } from '../../components/constants/data';
 import React, { useState } from 'react'
 import { HiMenu } from "react-icons/hi";
