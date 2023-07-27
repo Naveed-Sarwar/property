@@ -5,8 +5,9 @@ import { AiFillPropertySafety, AiTwotoneTool } from "react-icons/ai";
 import { FaTools } from "react-icons/fa";
 import {FiDollarSign} from "react-icons/fi";
 import {SiArtixlinux} from "react-icons/si";
-export  const list = [
 
+
+export  const list = [
     {title: "Invest" , icon: <FiDollarSign fontSize={24} /> , route: "https://property-page-blue.vercel.app/" },
     { title: "Buy Land", icon: <BiSolidLandscape fontSize={24} /> , route: "/" },
     {title: "Investment Analyzer" , icon: <SiArtixlinux fontSize={24} /> , route: "https://property-rho.vercel.app/page" },
@@ -14,4 +15,4 @@ export  const list = [
     { title: "On ramp a property", icon: <AiFillPropertySafety fontSize={24} /> , route: "/" }, 
     { title: "Use Your Land", icon: <FaTools fontSize={22} /> , route: "/" },
     { title: "Build on Aasthi", icon: <AiTwotoneTool fontSize={24} />  , route: "/"}
-]
+];
