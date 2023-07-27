@@ -14,7 +14,7 @@ const Header = () => {
                 <div className=' py-6 lg:pt-10'>
 
                     <button className='hidden lg:flex text-white lg:mr-12 float-right border-[1px] rounded-lg py-2 px-4 border-[#575555]'>Connect Your Wallet</button>
-                    <HiMenu onClick={() => setOpen(!open)} fontSize={24} className='text-blue-700 lg:hidden' />
+                    <HiMenu onClick={() => setOpen(!open)} fontSize={24} className='text-[#DEBD6D] lg:hidden' />
                 </div>
             </div>
             <div
