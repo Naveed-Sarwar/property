@@ -13,6 +13,6 @@ export const list = [
     { title: "Investment Analyzer", icon: <SiArtixlinux fontSize={24} />, route: "https://property-rho.vercel.app/page" },
     { title: "Portfolio", icon: <BsFillPersonFill fontSize={24} />, route: "https://profound-flea.10web.site/" },
     { title: "On ramp a property", icon: <AiFillPropertySafety fontSize={24} />, route: "http://aasthi.ai" },
-    { title: "Use Your Land", icon: <FaTools fontSize={22} />, route: "/http://aasthi.ai/" },
+    { title: "Use Your Land", icon: <FaTools fontSize={22} />, route: "http://aasthi.ai/" },
     { title: "Build on Aasthi", icon: <AiTwotoneTool fontSize={24} />, route: "http://aasthi.ai" }
 ];
