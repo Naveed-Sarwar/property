@@ -33,7 +33,7 @@ const Header = () => {
                             </div>
                         })
                     }
-                    <button className='md:hidden  flex justify-center text-black w-[90%] mx-auto border-[1px] rounded-lg py-2 mt-4 px-4 border-[#575555]'>Connect Your Wallet</button>
+                <Link href="https://profound-flea.10web.site/" target="_blank"><button className='md:hidden  flex justify-center text-black w-[90%] mx-auto border-[1px] rounded-lg py-2 mt-4 px-4 border-[#575555]'>Connect Your Wallet</button></Link>
                 </div>
             </div>
         </div>
