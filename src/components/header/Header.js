@@ -29,8 +29,8 @@ const Header = () => {
                     {
                         list?.map((item) => {
                             return <div className='flex flex-col  py-3 text-black rounded-md hover:bg-[#86b1f780]'>
-                                <div className='flex ml-12  text-black gap-x-3 cursor-pointer'>   <p>{item.icon}</p> <p>{item.title}</p></div>
-                            </div>
+                                <Link href={`${item?.route}`}> <div className='flex ml-12  text-black gap-x-3 cursor-pointer'>   <p>{item.icon}</p> <p>{item.title}</p></div>
+                                </Link>  </div>
                         })
                     }
                     <button className='md:hidden  flex justify-center text-black w-[90%] mx-auto border-[1px] rounded-lg py-2 mt-4 px-4 border-[#575555]'>Connect Your Wallet</button>
