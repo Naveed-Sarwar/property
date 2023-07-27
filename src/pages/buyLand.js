@@ -4,6 +4,7 @@ import React from 'react';
 
 import { list } from '@/components/constants/data';
 import LandMap from '@/components/map/LandMap';
+import Link from 'next/link';
 
 
 const Buyland = () => {
@@ -16,8 +17,9 @@ const Buyland = () => {
                     {
                         list?.map((item) => {
                             return <div className='flex flex-col py-3 text-white rounded-md hover:bg-[rgba(134,177,247,0.5)]'>
-                                <div className='flex ml-12  text-[#d1d5db] gap-x-3 cursor-pointer'>   <p>{item.icon}</p> <p>{item.title}</p></div>
-                            </div>
+                           <Link href={`${item?.route}`}>
+                             <div className='flex ml-12  text-[#d1d5db] gap-x-3 cursor-pointer'>   <p>{item.icon}</p> <p>{item.title}</p></div>
+                             </Link>   </div>
                         })
                     }
                 </div>
