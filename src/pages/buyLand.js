@@ -17,7 +17,7 @@ const Buyland = () => {
                     {
                         list?.map((item) => {
                             return <div className='flex flex-col py-3 text-white rounded-md hover:bg-[rgba(134,177,247,0.5)]'>
-                           <Link href={`${item?.route}`}>
+                           <Link target='_blank' href={`${item?.route}`}>
                              <div className='flex ml-12  text-[#d1d5db] gap-x-3 cursor-pointer'>   <p>{item.icon}</p> <p>{item.title}</p></div>
                              </Link>   </div>
                         })

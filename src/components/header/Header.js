@@ -30,7 +30,7 @@ const Header = () => {
                     {
                         list?.map((item) => {
                             return <div className='flex flex-col  py-3 text-black rounded-md hover:bg-[#86b1f780]'>
-                                <Link href={`${item?.route}`}> <div className='flex ml-12  text-black gap-x-3 cursor-pointer'>   <p>{item.icon}</p> <p>{item.title}</p></div>
+                                <Link target='_blank' href={`${item?.route}`}> <div className='flex ml-12  text-black gap-x-3 cursor-pointer'>   <p>{item.icon}</p> <p>{item.title}</p></div>
                                 </Link>  </div>
                         })
                     }
