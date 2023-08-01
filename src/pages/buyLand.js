@@ -16,6 +16,7 @@ import { GoArrowSwitch } from "react-icons/go";
 import IconImg from "../../assets/icon.png";
 // import Video from "../../public/"
 import ReactPlayer from "react-player";
+import Plot from "../../assets/plot.png";
 const Buyland = () => {
 
     const [show, setShow] = useState(false);
@@ -49,7 +50,7 @@ const Buyland = () => {
                                 {/* <video className='h-[300px] w-full' controls autoPlay>
                                     <source src={'../../assets/video/video'} type="video/mp4" />
                                 </video> */}
-                                <video
+                                {/* <video
                                     width="100%"
                                     height="auto"
                                     className="z-100"
@@ -57,8 +58,8 @@ const Buyland = () => {
                                     playing
                                     loop      >
                                     <source src='../../public/assets/video/video.mp4' />
-                                </video>
-
+                                </video> */}
+<Image src={Plot} />
                                 <div>
                                     <div className='bg-[#272626] text-white px-4 flex items-center gap-x-3 py-5'>
                                         <BsStickiesFill />   <p className='text-2xl'>Description</p>
