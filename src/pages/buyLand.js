@@ -29,9 +29,8 @@ const Buyland = () => {
     const [documents , setDocuments] = useState(false);
     return (
 
-        <div className='bg-[#1a1212] ' >
+        <div className='bg-[#1a1212]' >
             <Header />
-
             <div className='grid grid-cols-12 gap-8'>
                 <div className=' hidden lg:block md:col-span-3 lg:col-span-2 pt-12'>
                     {
@@ -46,10 +45,12 @@ const Buyland = () => {
                 {
                     show ? <div className='col-span-12 lg:col-span-10'>
                         {/* <LandMap /> */}
-                        <div className='grid grid-cols-12 gap-20'>
-
-                            <div className='col-span-12 lg:col-span-8'>
-                                <p className='text-4xl py-2 lg:pl-0 pl-4 font-medium text-white'>APN 074-142-22, Zayante, CA</p>
+                        <Image src={Plot} className='w-[95%] hidden lg:flex' />
+                              <div className='grid grid-cols-12  lg:gap-20'>
+                     
+                            <div className='col-span-12  lg:col-span-8'>
+                 
+                             <p className='text-4xl py-2 font-medium pl-4 lg:pl-0 text-white'>APN 074-142-22, Zayante, CA</p>
                                 {/* <video className='h-[300px] w-full' controls autoPlay>
                                     <source src={'../../assets/video/video'} type="video/mp4" />
                                 </video> */}
@@ -62,7 +63,7 @@ const Buyland = () => {
                                     loop      >
                                     <source src='../../public/assets/video/video.mp4' />
                                 </video> */}
-                                <Image src={Plot} />
+                                <Image src={Plot} className='lg:hidden flex' />
                                 <div>
                                     <div className='bg-[#272626] text-white px-4 flex items-center gap-x-3 py-5'>
                                         <BsStickiesFill />   <p className='text-2xl'>Description</p>
@@ -201,8 +202,8 @@ const Buyland = () => {
                                 </div>
 
                             </div>
-                            <div className='col-span-12 lg:col-span-4 lg:mr-16  flex flex-col justify-center items-center'>
-                                <div className='bg-[#131212] w-[100%] flex flex-col py-4  justify-center items-center'>
+                            <div className='col-span-12 lg:col-span-4 lg:mr-16  flex flex-col items-center'>
+                                <div className='bg-[#131212] w-[100%] flex flex-col py-4 lg:mt-14  justify-center items-center'>
                                     <Image src={Logo} className='rounded-full w-28 h-28' />
                                     <p className='text-[#DEBD6D] font-bold text-2xl py-2'>aasthi.ai</p>
                                     <button className='rounded-md bg-[#DEBD6D] text-white py-2 px-6'>1,217,528 USD
@@ -281,8 +282,8 @@ const Buyland = () => {
                                         </button>
                                         {
                                             documents && <div className='absolute mt-2 w-44 bg-white rounded-md py-4 '>
-                                       <p className='py-1.5 px-2 cursor-pointer hover:bg-slate-200'>Operating Agreement</p>
-                                       <p className='py-1.5 cursor-pointer px-2 hover:bg-slate-200'>Proof of Title</p>
+                                       <p onClick={()=> setDocuments(!documents)} className='py-1.5 px-2 cursor-pointer hover:bg-slate-200'>Operating Agreement</p>
+                                       <p onClick={()=> setDocuments(!documents)} className='py-1.5 cursor-pointer px-2 hover:bg-slate-200'>Proof of Title</p>
                                             </div>
                                         }
                                     </div>

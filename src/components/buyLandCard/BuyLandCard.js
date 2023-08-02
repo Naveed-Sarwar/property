@@ -3,7 +3,7 @@ import React from 'react';
 import Land from "../../../assets/land.jpeg";
 const BuyLandCard = () => {
     return (
-        <div className='flex flex-col justify-center lg:justify-start lg:items-start items-center'>
+        <div className='cursor-pointer flex flex-col justify-center lg:justify-start lg:items-start items-center'>
      
         <div className='h-auto w-[90%] lg:w-64 lg:h-84 mt-4 rounded-md bg-[#1d222d] border-[#575555] border-[1px] p-4'>
             <Image src={Land} alt='land' />
