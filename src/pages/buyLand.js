@@ -292,7 +292,7 @@ const Buyland = () => {
                                  
                                 </div>
                             </div>
-                               {/* <SliderTwo /> */}
+                               <SliderTwo />
 
                         </div>
                     </div>
