@@ -19,6 +19,8 @@ import ReactPlayer from "react-player";
 import Plot from "../../assets/plot.png";
 import { HiDocumentText } from 'react-icons/hi';
 import { IoIosArrowDown } from 'react-icons/io';
+import Slider from '@/components/slider/Slider';
+import SliderTwo from '@/components/slider/SliderTwo';
 const Buyland = () => {
 
     const [show, setShow] = useState(false);
@@ -50,7 +52,7 @@ const Buyland = () => {
                      
                             <div className='col-span-12  lg:col-span-8'>
                  
-                             <p className='text-4xl py-2 font-medium pl-4 lg:pl-0 text-white'>APN 074-142-22, Zayante, CA</p>
+                             <p className='text-4xl py-2 font-medium pl-4 lg:pl-0 text-white'>APN 174-783 Hyderabad ,Telangana</p>
                                 {/* <video className='h-[300px] w-full' controls autoPlay>
                                     <source src={'../../assets/video/video'} type="video/mp4" />
                                 </video> */}
@@ -287,8 +289,10 @@ const Buyland = () => {
                                             </div>
                                         }
                                     </div>
+                                 
                                 </div>
                             </div>
+                               {/* <SliderTwo /> */}
 
                         </div>
                     </div>
