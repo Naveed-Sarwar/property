@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import { list } from '@/components/constants/data';
 import LandMap from '@/components/map/LandMap';
 import Link from 'next/link';
-import { BsStickiesFill } from 'react-icons/bs';
-import Person from "../../assets/person.jpg";
+import { BsSearch, BsStars, BsStickiesFill } from 'react-icons/bs';
+import Logo from "../../assets/logo.png";
 import Image from 'next/image';
 import { SiAdguard } from 'react-icons/si';
 import { GiProgression } from "react-icons/gi";
@@ -17,6 +17,8 @@ import IconImg from "../../assets/icon.png";
 // import Video from "../../public/"
 import ReactPlayer from "react-player";
 import Plot from "../../assets/plot.png";
+import { HiDocumentText } from 'react-icons/hi';
+import { IoIosArrowDown } from 'react-icons/io';
 const Buyland = () => {
 
     const [show, setShow] = useState(false);
@@ -24,6 +26,7 @@ const Buyland = () => {
     const [onChain, setOnChain] = useState(false);
     const [opreating, setOperating] = useState(false);
     const [pass, setPass] = useState(false);
+    const [documents , setDocuments] = useState(false);
     return (
 
         <div className='bg-[#1a1212] ' >
@@ -45,8 +48,8 @@ const Buyland = () => {
                         {/* <LandMap /> */}
                         <div className='grid grid-cols-12 gap-20'>
 
-                            <div className='col-span-8'>
-                                <p className='text-4xl py-2 font-medium text-white'>APN 074-142-22, Zayante, CA</p>
+                            <div className='col-span-12 lg:col-span-8'>
+                                <p className='text-4xl py-2 lg:pl-0 pl-4 font-medium text-white'>APN 074-142-22, Zayante, CA</p>
                                 {/* <video className='h-[300px] w-full' controls autoPlay>
                                     <source src={'../../assets/video/video'} type="video/mp4" />
                                 </video> */}
@@ -59,7 +62,7 @@ const Buyland = () => {
                                     loop      >
                                     <source src='../../public/assets/video/video.mp4' />
                                 </video> */}
-<Image src={Plot} />
+                                <Image src={Plot} />
                                 <div>
                                     <div className='bg-[#272626] text-white px-4 flex items-center gap-x-3 py-5'>
                                         <BsStickiesFill />   <p className='text-2xl'>Description</p>
@@ -198,17 +201,98 @@ const Buyland = () => {
                                 </div>
 
                             </div>
-                            <div className='col-span-4 mr-16  flex flex-col justify-center items-center'>
-                                {/* <div className='bg-[#131212] w-[100%]'>
-                                    <Image src={Person} className='rounded-full' />
-                                    <p className='text-[#DEBD6D] font-bold text-center text-2xl py-2'>aasthi.ai</p>
-                                </div> */}
-                                {/* <p className='text-xl font-medium text-white'>APN 074-142-22, Zayante, CA</p> */}
+                            <div className='col-span-12 lg:col-span-4 lg:mr-16  flex flex-col justify-center items-center'>
+                                <div className='bg-[#131212] w-[100%] flex flex-col py-4  justify-center items-center'>
+                                    <Image src={Logo} className='rounded-full w-28 h-28' />
+                                    <p className='text-[#DEBD6D] font-bold text-2xl py-2'>aasthi.ai</p>
+                                    <button className='rounded-md bg-[#DEBD6D] text-white py-2 px-6'>1,217,528 USD
+                                        <br />
+                                        10 Cr INR</button>
+                                    <button className='bg-[#DEBD6D] my-1 flex items-center gap-x-3 rounded-md text-white py-2 px-6'>
+                                        <BsStars fontSize={18} />  Buy Shares
+                                    </button>
+                                </div>
+
+                                <br />
+                                <div className='w-full'>
+                                    <div className='bg-[#272626]  text-white px-4 flex items-center gap-x-3 py-5'>
+                                        <BsSearch fontSize={20} />   <p className='text-2xl'>Details</p>
+                                    </div>
+                                    <div className='bg-[#131212] py-6 px-11 '>
+                                        <div className='flex items-center my-4 gap-x-3'>
+                                            <div className='text-white'>
+                                                <p className='text-md text-gray-400'>Plot Area:</p>
+
+                                                <li className='py-1'>5000 (sq yds)</li>
+                                                <p className='text-md text-gray-400'>Dimensions(L X B):</p>
+
+                                                <li className='py-1'>50 X 100</li>
+                                                <p className='text-md text-gray-400'>
+                                                    No Of Open Sides:
+                                                </p>
+                                                <li className='py-1'>2</li>
+                                                <p className='text-md text-gray-400'>
+                                                    Any Construction Done:
+                                                </p>
+                                                <li className='py-1'>No</li>
+                                                <p className='text-md text-gray-400'>
+                                                    Type Of Ownership:
+                                                </p>
+                                                <li className='py-1'>Freehold</li>
+                                                <p className='text-md text-gray-400'>
+
+                                                    Overlooking:
+                                                </p>
+
+                                                <li className='py-1'>Garden/Park, Main Road</li>
+                                                <p className='text-md text-gray-400'>
+                                                    Transaction Type:</p>
+                                                <li className='py-1'>
+
+                                                    New Property
+                                                </li>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <br />
+                                <div className='w-full'>
+                                    <div className='bg-[#272626]  text-white px-4 flex items-center gap-x-3 py-5'>
+                                        <HiDocumentText fontSize={20} />   <p className='text-2xl'>Legals</p>
+                                    </div>
+                                    <div className='bg-[#131212] py-6 px-11 '>
+                                        <div className='flex items-center my-4 gap-x-3'>
+                                            <div className='text-white'>
+                                                <p className='text-md text-gray-400'>DESCRIPTION</p>
+
+                                                <p className='py-1 font-semibold'>Madhapur Land plot
+                                                   
+                                                    </p>
+                                                    <p className='text-md text-gray-400'>HOLDING</p>
+                                                     <p className='py-1'>Aasthi EYD4REH05G3NV Trust</p>
+                                            </div>
+                                           
+                                        </div>
+                                        <button onClick={()=> setDocuments(!documents)} className='w-44 bg-[#DeBD6D] flex items-center gap-x-2 justify-center rounded-md text-white px-6 py-2' >Documents
+                                        <IoIosArrowDown fontSize={20} />
+                                        </button>
+                                        {
+                                            documents && <div className='absolute mt-2 w-44 bg-white rounded-md py-4 '>
+                                       <p className='py-1.5 px-2 cursor-pointer hover:bg-slate-200'>Operating Agreement</p>
+                                       <p className='py-1.5 cursor-pointer px-2 hover:bg-slate-200'>Proof of Title</p>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                         : <div className='col-span-12 lg:col-span-10 pt-16'>
-                            <div className=' lg:mr-16'>
+                            <div className='lg:mr-16'>
                                 <LandMap />
                             </div>
                             <div className='flex flex-col lg:justify-start justify-center lg:items-start items-center'>
